@@ -1,0 +1,44 @@
+
+<div class="boddy">
+    <div class="input-group">
+        <div class="form-outline">
+          <input type="search"
+                class="form-control rounded"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="search-addon"
+                [(ngModel)]="searchText"
+                (input)="onSearchTextEnterd(searchText)"
+          />
+          <label class="form-label" for="form1">Search</label>
+        </div>
+      </div>
+  <ul>
+    <li *ngFor="let book of books">
+        <div *ngIf="searchText === ''|| book.name.toLowerCase().includes(searchText)" class="card mb-3" style="max-width: 1140px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <a routerLink="/book">
+                        <img src={{book.img}} alt={{book.name}}>
+                    </a>
+                </div>
+                
+                <div class="col-md-8">
+                    <h3 class="card-title">{{book.name}}</h3>
+                    <p class="card-text">{{book.about}}</p>
+                    <p>{{123}} Views<span><i class="fa-solid fa-eye"></i></span></p><br>
+                    <p>Price: {{book.price|currency:'INR'}}</p>
+                <div class="haha">
+                    <label for="rating-inline">Rating:</label>
+                    <ngb-rating [max]="5" [rate]="4" ></ngb-rating>
+                </div> <br>
+                <br>
+                <p class="highlight">
+                    cilck the image to read the book
+                </p>
+                    </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>

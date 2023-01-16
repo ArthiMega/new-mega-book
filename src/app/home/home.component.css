@@ -1,0 +1,37 @@
+h1{
+  display: flex;
+  justify-content: center;
+}
+.boddy{
+  margin-left: 250px;
+  margin-right: 250px;
+}
+img {
+  width: 400px;
+  height: 500px;
+}
+
+ngb-rating{
+  font-size: 30px;
+}
+h3,p, .haha{
+  padding-left: 50px;
+}
+p{
+  font-size: larger;
+}
+ul{
+  list-style: none;
+}
+a{
+  position: relative;
+}
+.card-footer{
+  height: 0px;
+}
+.highlight{
+  background-color: aqua;
+}
+.input-group{
+  margin-left: 34px;
+}

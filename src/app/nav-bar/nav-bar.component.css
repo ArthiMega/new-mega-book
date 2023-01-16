@@ -1,0 +1,24 @@
+ul li {display: inline-block;}
+        li a img{
+        display: table;
+        height: inherit;
+        width: 20px;
+        margin-top: 2px;
+        align-content: center;
+        }
+        
+        ul li:hover ul {display: block;}
+        ul li ul {
+        position: absolute;
+        width: 200px;
+        display: none;
+        }
+        ul li ul li { 
+        
+        display: block; 
+        }
+        ul li ul li a {display:block !important;} 
+        .navbar1{
+                margin-left: 1200px;
+        }
+      

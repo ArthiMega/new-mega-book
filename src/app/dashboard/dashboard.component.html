@@ -1,0 +1,35 @@
+<div class="boddy">
+    
+<h1>Dash board</h1>
+<ul>
+    <li *ngFor="let book of books">
+        <div class="card mb-3" style="max-width: 1140px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <a routerLink="/book">
+                        <img src={{book.img}} alt={{book.name}}>
+                    </a>
+                </div>
+                
+                <div class="col-md-8">
+                    <h3 class="card-title">{{book.name}}</h3>
+                    <p class="card-text">{{book.about}}</p>
+                    <p>{{123}} Views<span><i class="fa-solid fa-eye"></i></span></p><br>
+                    <p>Price: {{book.price|currency:'INR'}}</p>
+                <div class="haha">
+                    <label for="rating-inline">Rating:</label>
+                    <ngb-rating [max]="5" [rate]="4" ></ngb-rating>
+                </div> <br>
+                <br>
+                <p class="highlight">
+                    cilck the image to read the book
+                </p>
+                
+                <h3>{{book.author}}</h3>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+</div>

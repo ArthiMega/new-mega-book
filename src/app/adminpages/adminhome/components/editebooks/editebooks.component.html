@@ -1,0 +1,32 @@
+
+<div class="main">
+  <h2>Welcome Admin!</h2>
+  <p>Have a Great day with your bussiness</p>
+  <section id="bookdetails">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Cover page</th>
+          <th scope="col">Book Name</th>
+          <th scope="col">Author</th>
+          <th scope="col">Price</th>
+          <th scope="col">About Book</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <th>{{book.id}}</th>
+          <td><img src={{book.img}} alt={{book.name}}></td>
+          <td>{{book.name}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.about}}</td>
+          <td><i class="fas fa-edit fa-2x"></i>|<i class="fa fa-trash fa-2x" aria-hidden="true" (click)="deleteBook(book.id)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
+  
