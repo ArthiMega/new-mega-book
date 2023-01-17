@@ -10,6 +10,7 @@ import { NavService } from '../service/nav.service';
 export class DashboardComponent implements OnInit {
 
   books :any
+  myreadings:any[] = [];
   constructor(public nav:NavService, private crudservice:CRUDService) {
     this.nav.show();
    }
@@ -18,5 +19,11 @@ export class DashboardComponent implements OnInit {
     this.crudservice.getAllBooks().subscribe(response => {
         this.books = response;
     });
+  }
+  getMyReadings(){
+    //console.log(this.crudservice.getMyReadings());
+    this.crudservice.getMyReadings(); 
+    this.myreadings = this.crudservice.myReadings;
+    console.log(this.myreadings);
   }
 }

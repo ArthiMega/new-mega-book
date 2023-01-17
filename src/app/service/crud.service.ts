@@ -16,6 +16,7 @@ export class CRUDService {
   constructor(private http: HttpClient) {
     
    }
+   myReadings:string[] = [];
   getUserInfo(){
     return this.http.get(this.baseURL+'user-data');
   }
@@ -41,8 +42,10 @@ export class CRUDService {
       return res;
     }))
   }
-  postDashBoard(){
-    return this.http.post<any>
+  postDashBoard(id:any){
+    return this.http.post<any>(this.baseURL+'user-data/',id).pipe(map((res:any)=>{
+      return res;
+    }))
   }
   postBooks(bookdetails:any){
     return this.http.post<any>(this.baseURL+'books',bookdetails).pipe(map((response:any)=>{
@@ -68,8 +71,16 @@ export class CRUDService {
 
     return this.http.request(req);
   }
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseURL}v_data`);
+  // ==========add to cart========
+  addToMyReadings(bookname:string){
+    this.myReadings.push(bookname);
+    this.saveMyReading();
+  }
+  saveMyReading(): void {
+    localStorage.setItem('cart_items', JSON.stringify(this.myReadings)); 
+  }
+  getMyReadings(){
+    return this.myReadings;
   }
 }
  

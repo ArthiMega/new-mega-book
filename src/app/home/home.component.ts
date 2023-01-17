@@ -10,6 +10,7 @@ import { NavService } from '../service/nav.service';
 export class HomeComponent implements OnInit {
   searchText:string ="";
   books:any;
+  items:any[] = [];
   constructor(public nav:NavService, public crudservice:CRUDService) {
     // this.nav.show();
    }
@@ -22,7 +23,9 @@ export class HomeComponent implements OnInit {
       this.books = data;
     });
   }
-  addDashBoard(){
-    this.crudservice
+  addDashBoard(item:any){
+    this.crudservice.addToMyReadings(item);
+    console.log(item);
+    //this.items = [...this.crudservice.getMyReadings()];
   }
 }

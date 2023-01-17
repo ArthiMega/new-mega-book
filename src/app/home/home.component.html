@@ -19,7 +19,7 @@
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <a routerLink="/book">
-                        <img src={{book.img}} alt={{book.name}}>
+                        <img src={{book.img}} alt={{book.name}} routerLink="/login" (click)="addDashBoard(book.name)">
                     </a>
                 </div>
                 
