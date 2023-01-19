@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/authentication.service';
 import { CRUDService } from 'src/app/service/crud.service';
 
 
@@ -11,7 +12,9 @@ import { CRUDService } from 'src/app/service/crud.service';
 export class EditebooksComponent implements OnInit {
 
   books!:any;
-  constructor(private crudservice:CRUDService, private router:Router) { }
+  constructor(private crudservice:CRUDService, 
+    private router:Router,
+    private auth:AuthService) { }
   viewBooks(){
     this.crudservice.getAllBooks().subscribe(response=>{
       this.books = response;
@@ -27,6 +30,9 @@ export class EditebooksComponent implements OnInit {
   }
   ngOnInit() {
     this.viewBooks();
+    if(!this.auth.isAdmin()){
+      this.router.navigate(['../home'])
+    }
   }
   }
   

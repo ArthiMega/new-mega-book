@@ -1,4 +1,4 @@
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError,map } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,7 @@ export class AuthService {
   baseURL = "http://localhost:3000/";
   userId!:number;
   admin:boolean = false;
+  userEmail!:string;
   constructor(private router: Router, private http: HttpClient) {}
 
   setToken(token: string): void {
@@ -18,6 +19,12 @@ export class AuthService {
 
   getToken(): string | null {
     return sessionStorage.getItem('token');
+  }
+  setEmail(email:string){
+    sessionStorage.setItem('email',email);
+  }
+  getEmail():string|null{
+    return sessionStorage.getItem('email')
   }
 
   isLoggedIn() {
@@ -44,10 +51,12 @@ export class AuthService {
   .subscribe(res=>{
     const user = res.find((a:any)=>{
       this.userId = a.id;
+      // this.userEmail = email
       return a.email === email && a.password === password
     });
     if(user){
-      console.log(res);
+      //console.log(res);
+      this.setEmail(email);
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       alert("Logged in successfully!")
       this.router.navigate(['home']);
@@ -65,4 +74,15 @@ export class AuthService {
    getIndividualUser(){
     return this.http.get(`${this.baseURL}user-data/${this.userId}`);
   }
+  postDashBoard(data:any){
+    return this.http.post<any>(this.baseURL+'myreading/',data).pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+getDashboard(){
+  return this.http.get(`${this.baseURL}myreading`)
+}
+isNewUser(){
+  
+}
 }

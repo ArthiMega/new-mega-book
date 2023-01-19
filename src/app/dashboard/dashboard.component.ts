@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/authentication.service';
 import { CRUDService } from '../service/crud.service';
 import { NavService } from '../service/nav.service';
 
@@ -9,21 +11,27 @@ import { NavService } from '../service/nav.service';
 })
 export class DashboardComponent implements OnInit {
 
-  books :any
-  myreadings:any[] = [];
-  constructor(public nav:NavService, private crudservice:CRUDService) {
-    this.nav.show();
+  users!:any;
+  books!:any;
+  useremail!:any
+  constructor(private auth:AuthService,
+              private crudservice:CRUDService) { 
    }
 
    ngOnInit(): void {
-    this.crudservice.getAllBooks().subscribe(response => {
-        this.books = response;
-    });
+    this.getBooks();
+    this.getUser();
   }
-  getMyReadings(){
-    //console.log(this.crudservice.getMyReadings());
-    this.crudservice.getMyReadings(); 
-    this.myreadings = this.crudservice.myReadings;
-    console.log(this.myreadings);
+  getUser(){
+    this.auth.getDashboard().subscribe(data=>{
+      this.users = data;
+    })
   }
+  getBooks(){
+    this.crudservice.getAllBooks().subscribe(res=>{
+      this.books = res;
+    })
+  }
+  userEmail = this.auth.getEmail();
+    
 }

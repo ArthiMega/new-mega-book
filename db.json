@@ -1,25 +1,34 @@
 {
-  "v_data": [
-    {
-      "id": 1,
-      "name": "peppa",
-      "url": "https://youtu.be/SGX0rSYf6ZY"
-    },
-    {
-      "id": 2,
-      "name": "Doremon",
-      "url": "https://youtu.be/SGX0rSYf6ZY"
-    },
-    {
-      "id": 3
-    }
-  ],
   "user-data": [
     {
       "name": "Arthi Meganathan",
       "email": "art@gmail.com",
       "password": "123",
       "id": 1
+    },
+    {
+      "name": "Guna Meganathan",
+      "email": "guna@gmail.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "Kumar Kumarey",
+      "email": "kumar@gmail.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "art",
+      "email": "art@gmail.com",
+      "password": "asdfghjk",
+      "id": 4
+    },
+    {
+      "name": "Merlins Arul",
+      "email": "merlins@gmail.com",
+      "password": "123",
+      "id": 5
     }
   ],
   "books": [
@@ -94,6 +103,92 @@
       "img": "http://localhost:4200/assets/images/savage%20girl.jpg",
       "about": "In 1766 an insatiable vampire sails from London to the Malabar Coast, aboard an East India Company ship. But along the shores of the Indus lurk darker and ...",
       "id": 9
+    }
+  ],
+  "myreading": [
+    {
+      "email": "guna@gmail.com",
+      "mybooks": {
+        "name": "History of the Marvel Universe",
+        "author": "Dany",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/marvel.png",
+        "about": "Marvel was started in 1939 by Martin Goodman as Timely Comics, and by 1951 had generally become known as Atlas Comics. The Marvel era began in June 1961 with the launch of The Fantastic Four and other superhero titles created by Stan Lee, Jack Kirby, Steve Ditko and many others.",
+        "id": 6
+      },
+      "id": 1
+    },
+    {
+      "email": "kumar@gmail.com",
+      "mybooks": {
+        "name": "Gaming Daimensions in apocalypse",
+        "author": "Bond",
+        "price": 250,
+        "img": "http://localhost:4200/assets/images/gamingDimentionals.webp",
+        "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
+        "id": 2
+      },
+      "id": 2
+    },
+    {
+      "email": "kumar@gmail.com",
+      "mybooks": {
+        "name": "History of the Marvel Universe",
+        "author": "Dany",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/marvel.png",
+        "about": "Marvel was started in 1939 by Martin Goodman as Timely Comics, and by 1951 had generally become known as Atlas Comics. The Marvel era began in June 1961 with the launch of The Fantastic Four and other superhero titles created by Stan Lee, Jack Kirby, Steve Ditko and many others.",
+        "id": 6
+      },
+      "id": 3
+    },
+    {
+      "email": "kumar@gmail.com",
+      "mybooks": {
+        "name": "Gaming Daimensions in apocalypse",
+        "author": "Bond",
+        "price": 250,
+        "img": "http://localhost:4200/assets/images/gamingDimentionals.webp",
+        "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
+        "id": 2
+      },
+      "id": 4
+    },
+    {
+      "email": "merlins@gmail.com",
+      "mybooks": {
+        "name": "Peppa Pig",
+        "author": "Arthi",
+        "price": 1050,
+        "img": "http://localhost:4200/assets/images/Peppa_Pig.png",
+        "about": "Peppa, an outgoing preschool pig, participates in many energetic activities. She learns something new every day and has a lot of fun with her family and friends.",
+        "id": 8
+      },
+      "id": 5
+    },
+    {
+      "email": "merlins@gmail.com",
+      "mybooks": {
+        "name": "Gaming Daimensions in apocalypse",
+        "author": "Bond",
+        "price": 250,
+        "img": "http://localhost:4200/assets/images/gamingDimentionals.webp",
+        "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
+        "id": 2
+      },
+      "id": 6
+    },
+    {
+      "email": "merlins@gmail.com",
+      "mybooks": {
+        "name": "Number six criminal",
+        "author": "ED Brubaker Sean Phillips",
+        "price": 550,
+        "img": "http://localhost:4200/assets/images/girl.jpg",
+        "about": "The BAU goes to Detroit to track an UnSub with a rapidly changing MO. Also, Blake's husband returns from overseas with a life-changing career proposition for her.#6 is the twenty-second episode of Season Eight and the 184th overall of Criminal Minds. The BAU goes to Detroit to track down an escalating killer with a ...",
+        "id": 3
+      },
+      "id": 7
     }
   ]
 }

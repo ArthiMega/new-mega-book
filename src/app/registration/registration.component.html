@@ -6,7 +6,7 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Register</h3>
-            <form [formGroup]="formValue">
+            <form [formGroup]="formValue" (ngSubmit)="postUserDetails()">
               <div class="form-outline mb-4">
                 <label class="form-label" for="typeEmailX-2">Full Name</label>
                 <input type="email" id="typeEmailX-2" formControlName="name" class="form-control form-control-lg" />
@@ -52,7 +52,7 @@
 
             <!-- Checkbox -->
 
-            <button id="redirect" class="btn btn-primary btn-lg btn-block" type="submit" (click)="postUserDetails()">Register</button>
+            <button id="redirect" class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!formValue.valid">Register</button>
             <div>Already have an account? 
               <a routerLink="/login">login</a></div>
           </form>

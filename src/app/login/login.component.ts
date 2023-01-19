@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
    
   ngOnInit() {
     this.login = new FormGroup({
-      'email': new FormControl(),
-      'password': new FormControl(),
+      email: new FormControl(),
+      password: new FormControl(),
     });
     if(this.auth.isLoggedIn()){
       this.route.navigate(['home']);
@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
   
 
   logindata(login:FormGroup){
+    // localStorage.setItem('email',this.login.value.email);
+    // localStorage.setItem('password',this.login.value.password);
       this.auth.login(this.login.value.email,this.login.value.password);  
   }
 }

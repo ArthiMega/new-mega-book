@@ -44,9 +44,6 @@
               <div *ngIf="formValue.controls['price'].errors?.['required']">
                 This field is required.
               </div>
-              <div *ngIf="cpass.value != pass.value">
-                It must match the password
-              </div>
             </div>
             <div class="form-outline mb-4">
               <label class="form-label" for="about">About</label>
@@ -56,15 +53,12 @@
               <div *ngIf="formValue.controls['about'].errors?.['required']">
                 This field is required.
               </div>
-              <div *ngIf="cpass.value != pass.value">
-                It must match the password
-              </div>
             </div>
             
 
             <!-- Checkbox -->
 
-            <button id="redirect" class="btn btn-primary btn-lg btn-block" type="submit">Add Book</button>
+            <button id="redirect" class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!formValue.valid">Add Book</button>
           
           </form>
           </div>

@@ -9,17 +9,13 @@ import { AuthService } from '../service/authentication.service';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-user!:any
+individualUser!:any
 constructor(private auth:AuthService){}
   ngOnInit() {
     this.auth.getIndividualUser().subscribe(response=>{
-      this.user = response;
+      this.individualUser = response;
     })
   }
-
-  // save(){
-  //   this.service.saveData(data:any)
-  // }
 }
 
 

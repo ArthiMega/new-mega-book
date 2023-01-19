@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/authentication.service';
 import { CRUDService } from 'src/app/service/crud.service';
 
 @Component({
@@ -8,7 +10,10 @@ import { CRUDService } from 'src/app/service/crud.service';
 })
 export class ViewUserComponent implements OnInit {
   users!:any;
-  constructor(private crudservice:CRUDService) { }
+  constructor(private crudservice:CRUDService,
+              private auth:AuthService,
+              private route:Router
+              ) { }
   viewUsers(){
     this.crudservice.getUserInfo().subscribe(response=>{
       this.users = response;
@@ -16,6 +21,9 @@ export class ViewUserComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.auth.isAdmin()){
+      this.route.navigate(['../home'])
+    }
     this.viewUsers();
   }
 

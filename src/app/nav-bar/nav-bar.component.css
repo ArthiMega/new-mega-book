@@ -17,8 +17,17 @@ ul li {display: inline-block;}
         
         display: block; 
         }
-        ul li ul li a {display:block !important;} 
+        ul li ul li a {display:block;
+        background-color: rgb(230, 162, 35);
+        padding-left: 12px;
+        padding-top: 12px;
+        padding-bottom: 5px;
+        background-origin: padding-box;
+        border: 12px;
+        position:inherit
+        } 
         .navbar1{
-                margin-left: 1200px;
+
+                margin-left: 1150px;
         }
       

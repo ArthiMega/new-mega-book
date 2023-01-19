@@ -1,40 +1,36 @@
-<div class="boddy">
-    
-<h1>Dash board</h1>
-
-<!-- <div *ngfor="let item of myreadings; let i = index"> -->
-<ul>
-    
-    <li *ngFor="let book of books">
-        
-        <div class="card mb-3" style="max-width: 1140px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <a routerLink="/book">
-                        <img src={{book.img}} alt={{book.name}}>
-                    </a>
-                </div>
-                
-                <div class="col-md-8">
-                    <h3 class="card-title">{{book.name}}</h3>
-                    <p class="card-text">{{book.about}}</p>
-                    <p>{{123}} Views<span><i class="fa-solid fa-eye"></i></span></p><br>
-                    <p>Price: {{book.price|currency:'INR'}}</p>
-                <div class="haha">
-                    <label for="rating-inline">Rating:</label>
-                    <ngb-rating [max]="5" [rate]="4" ></ngb-rating>
-                </div> <br>
-                <br>
-                <p class="highlight">
-                    cilck the image to read the book
-                </p>
-                
-                <h3>{{book.author}}</h3>
+<div *ngIf="false; else dashBoard ">
+    <div class="container">
+        <div class="card">
+            <h4 class="card-title">My Dashboard</h4>
+        </div>
+        <div class="center">
+            <img src="../../assets/images/myreadings.jpg" alt="">
+            <h5>Your dashboard is empty</h5>
+            <button routerLink="../home" class="btn btn-primary">Add Now</button>
+        </div>
+    </div>
+</div>
+<ng-template #dashBoard>
+<div *ngFor="let user of users"> 
+    <div *ngIf="user.email === userEmail">
+        <div class="center1">
+                <div class="card mb-3" style="max-width: 1040px; max-height: fit-content;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src={{user.mybooks.img}} class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">{{user.mybooks.name}}</h5>
+                          <p class="card-text">{{user.mybooks.about}}</p>
+                          <p class="card-text"><small class="text-muted">Last seen 3 mins ago</small></p>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
-        
-    </li>
-   
-</ul>
+    </div>
 </div>
+</ng-template>
+ 
+  

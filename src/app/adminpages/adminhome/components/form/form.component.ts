@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validator, Validators, FormControl } from '@ang
 import { CRUDService } from 'src/app/service/crud.service';
 import { Router } from '@angular/router';
 import { FormModule1 } from './form.module';
+import { AuthService } from 'src/app/service/authentication.service';
 
 @Component({
   selector: 'app-form',
@@ -16,16 +17,21 @@ export class FormComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder, 
               private crudservice:CRUDService,
-              private router:Router) { }
+              private router:Router,
+              private auth:AuthService) { }
 
   ngOnInit() {
+    if(!this.auth.isAdmin()){
+      this.router.navigate(['../home'])
+    }
     this.formValue = this.formBuilder.group({
       coverpage:['',Validators.required],
       bookname:['',Validators.required],
       author:['',Validators.required],
       price:['',Validators.required],
       about:['',Validators.required],
-    })
+    });
+    
   }
   postBookDetails(){
     this.formModuleObj.img = this.formValue.value.coverpage;
