@@ -35,3 +35,9 @@ a{
 .input-group{
   margin-left: 34px;
 }
+.form-control{
+  position:fixed;
+  right: 430px;
+  top: 35px;
+  width: 200px;
+}
