@@ -61,17 +61,16 @@ export class AuthService {
       //console.log(res);
       this.setEmail(email);
       this.setToken('abcdefghijklmnopqrstuvwxyz');
-      alert("Logged in successfully!")
-      this.toastr.success("Logged in successfully!");
+      this.toastr.success("Logged in successfully!","User",{"positionClass":"toast-top-right"});
       this.router.navigate(['home']);
     }
     else
     {
-      alert('Usernot found')
+      this.toastr.warning('Usernot found')
       this.router.navigate(['login']);
     }
   },err=>{
-    alert('Something was wrong');
+    this.toastr.error('Something was wrong');
   })
 }
    }

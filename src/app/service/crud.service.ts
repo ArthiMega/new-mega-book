@@ -10,9 +10,6 @@ import { User } from '../user';
 export class CRUDService {
   private baseURL = 'http://localhost:3000/';
   todo = null;
-  //userInfo = [{"name":"Arthi","rent":5500},{"name":"dhivya","rent":5500}]
-  
-
   constructor(private http: HttpClient) {
     
    }

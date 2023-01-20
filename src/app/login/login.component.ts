@@ -18,12 +18,9 @@ export class LoginComponent implements OnInit {
   login:FormGroup|any;
   constructor(
      private route:Router, 
-     public nav: NavService,
      private auth:AuthService, 
-     private toastr:ToastrService,
      private formBuilder:FormBuilder,
      ) {
-    this.nav.hide()
    }
   ngOnInit() {
     this.login = this.formBuilder.group({
@@ -36,11 +33,5 @@ export class LoginComponent implements OnInit {
   }
   logindata(login:FormGroup){
       this.auth.login(this.login.value.email,this.login.value.password);  
-      if(this.auth.isLoggedIn()){
-        this.toastr.success("Hello world!", "Toastr fun!", {
-          titleClass: "center",
-          messageClass: "center"
-        });
-      }
   }
 }

@@ -38,13 +38,12 @@ export class RegistrationComponent implements OnInit {
     this.crudservice.postUser(this.registrationModelObj)
       .subscribe(
         res =>{
-        console.log(res);
         this.formValue.reset();
         this.toastr.success("Registerd successfully")
         this.route.navigate(['dashboard']);
       },
       error =>{
-        alert("somthing went wrong!")
+        this.toastr.error("somthing went wrong!")
       })
   }
   getAllUsers(){
