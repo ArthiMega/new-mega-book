@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CRUDService } from '../service/crud.service';
-import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from './registration.model';
 import { Router } from '@angular/router';
 import { NavService } from '../service/nav.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -17,15 +18,14 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private formbuilder:FormBuilder,
     private crudservice: CRUDService, 
-    private route:Router, public nav:NavService) {
-    this.nav.hide();
+    private route:Router, public nav:NavService ,private toastr:ToastrService) {
    }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
       name:['',Validators.required],
       email:['', Validators.required],
-      password:['',Validators.required],
+      password:['',Validators.required,Validators.pattern('^((?!.*[s])(?=.*[A-Z])(?=.*d).{8,99})')],
       conformpassword:['',Validators.required]
     })
   }  
@@ -39,11 +39,8 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         res =>{
         console.log(res);
-        
-        // let ref = document.getElementById('redirect');
-        // ref?.click();
         this.formValue.reset();
-        alert("registered")
+        this.toastr.success("Registerd successfully")
         this.route.navigate(['dashboard']);
       },
       error =>{

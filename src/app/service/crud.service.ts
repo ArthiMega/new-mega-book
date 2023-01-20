@@ -20,35 +20,18 @@ export class CRUDService {
   getUserInfo(){
     return this.http.get(this.baseURL+'user-data');
   }
-
-  getAllVidios(){
-    return this.http.get(this.baseURL);
-  }
   getAllBooks(){
     return this.http.get(this.baseURL+'books');
   }
-  
-  // saveData(inputData:any){
-  //   this.http.post(this.baseURL, inputData);
-  // }
-  // videoGetByCode(code:any){
-  //   this.http.get(this.baseURL +"/"+ code);
-  // }
-  // removeVideo(code:any){
-  //   this.http.delete(this.baseURL +"/"+code);
-  // }
-  //new
-  
+  getIndividualBook(id:number){
+    return this.http.get(this.baseURL+'books/'+id);
+  }
+   
   postUser(data:any){
     return this.http.post<any>(this.baseURL+'user-data',data).pipe(map((res:any)=>{
       return res;
     }))
   }
-  // postDashBoard(bookName:string){
-  //   return this.http.post<any>(this.baseURL+'myreading/',{'name':bookName}).pipe(map((res:any)=>{
-  //     return res;
-  //   }))
-  //}
   postBooks(bookdetails:any){
     return this.http.post<any>(this.baseURL+'books',bookdetails).pipe(map((response:any)=>{
       return response;
@@ -73,15 +56,6 @@ export class CRUDService {
 
     return this.http.request(req);
   }
-  // ==========add to cart========
-  // addToMyReadings(bookname:string,userId:number){
-  //   //return this.http.post<any>(this.baseURL+'user-data/'+userId,)
-  // }
-  // saveMyReading(): void {
-  //   localStorage.setItem('cart_items', JSON.stringify(this.myReadings)); 
-  // }
-  // getMyReadings(){
-  //   return this.myReadings;
-  // }
+  
 }
  

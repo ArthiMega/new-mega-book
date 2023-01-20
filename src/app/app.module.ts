@@ -19,7 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { BookComponent } from './book/book.component';
 import { NgbRatingModule} from '@ng-bootstrap/ng-bootstrap'; 
-
+import { ToastrModule } from 'ngx-toastr';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { ToastrModule } from 'ngx-toastr';
 //import { YouTubePlayerModule } from '@angular/youtube-player';
@@ -52,6 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbRatingModule,
     FormsModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot()
+    
     //YouTubePlayerModule,
   ],
   providers: [],

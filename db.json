@@ -119,7 +119,19 @@
       "id": 1
     },
     {
-      "email": "kumar@gmail.com",
+      "email": "art@gmail.com",
+      "mybooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "id": 1
+      },
+      "id": 2
+    },
+    {
+      "email": "art@gmail.com",
       "mybooks": {
         "name": "Gaming Daimensions in apocalypse",
         "author": "Bond",
@@ -128,10 +140,22 @@
         "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
         "id": 2
       },
-      "id": 2
+      "id": 3
     },
     {
-      "email": "kumar@gmail.com",
+      "email": "art@gmail.com",
+      "mybooks": {
+        "name": "The Immortal Hulk",
+        "author": "Jack danial",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/hulk.jpg",
+        "about": "The Immortal Hulk, introduced as Devil Hulk, is a fictional alternate-personality character appearing in American comic books published by Marvel Comics.",
+        "id": 5
+      },
+      "id": 4
+    },
+    {
+      "email": "art@gmail.com",
       "mybooks": {
         "name": "History of the Marvel Universe",
         "author": "Dany",
@@ -140,7 +164,43 @@
         "about": "Marvel was started in 1939 by Martin Goodman as Timely Comics, and by 1951 had generally become known as Atlas Comics. The Marvel era began in June 1961 with the launch of The Fantastic Four and other superhero titles created by Stan Lee, Jack Kirby, Steve Ditko and many others.",
         "id": 6
       },
-      "id": 3
+      "id": 5
+    },
+    {
+      "email": "art@gmail.com",
+      "mybooks": {
+        "name": "Number six criminal",
+        "author": "ED Brubaker Sean Phillips",
+        "price": 550,
+        "img": "http://localhost:4200/assets/images/girl.jpg",
+        "about": "The BAU goes to Detroit to track an UnSub with a rapidly changing MO. Also, Blake's husband returns from overseas with a life-changing career proposition for her.#6 is the twenty-second episode of Season Eight and the 184th overall of Criminal Minds. The BAU goes to Detroit to track down an escalating killer with a ...",
+        "id": 3
+      },
+      "id": 6
+    },
+    {
+      "email": "art@gmail.com",
+      "mybooks": {
+        "name": "My Sustem: An Evolved Computer I Made with my unique ability",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/MySystem.webp",
+        "about": "A young man found himself reborn as a Kryptonian. Content with living a quiet and peaceful life. Sadly it came to an abrupt end when a pink hair alien crash ...",
+        "id": 7
+      },
+      "id": 7
+    },
+    {
+      "email": "art@gmail.com",
+      "mybooks": {
+        "name": "God-Like Extraction",
+        "author": "Fruit of Choas",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/GodLike.webp",
+        "about": "Discovered the corpse of an ordinary human, loot to receive Super-strength Pill, extract?",
+        "id": 4
+      },
+      "id": 8
     },
     {
       "email": "kumar@gmail.com",
@@ -152,43 +212,7 @@
         "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
         "id": 2
       },
-      "id": 4
-    },
-    {
-      "email": "merlins@gmail.com",
-      "mybooks": {
-        "name": "Peppa Pig",
-        "author": "Arthi",
-        "price": 1050,
-        "img": "http://localhost:4200/assets/images/Peppa_Pig.png",
-        "about": "Peppa, an outgoing preschool pig, participates in many energetic activities. She learns something new every day and has a lot of fun with her family and friends.",
-        "id": 8
-      },
-      "id": 5
-    },
-    {
-      "email": "merlins@gmail.com",
-      "mybooks": {
-        "name": "Gaming Daimensions in apocalypse",
-        "author": "Bond",
-        "price": 250,
-        "img": "http://localhost:4200/assets/images/gamingDimentionals.webp",
-        "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
-        "id": 2
-      },
-      "id": 6
-    },
-    {
-      "email": "merlins@gmail.com",
-      "mybooks": {
-        "name": "Number six criminal",
-        "author": "ED Brubaker Sean Phillips",
-        "price": 550,
-        "img": "http://localhost:4200/assets/images/girl.jpg",
-        "about": "The BAU goes to Detroit to track an UnSub with a rapidly changing MO. Also, Blake's husband returns from overseas with a life-changing career proposition for her.#6 is the twenty-second episode of Season Eight and the 184th overall of Criminal Minds. The BAU goes to Detroit to track down an escalating killer with a ...",
-        "id": 3
-      },
-      "id": 7
+      "id": 9
     }
   ]
 }

@@ -18,8 +18,8 @@
         <div *ngIf="searchText === ''|| book.name.toLowerCase().includes(searchText)" class="card mb-3" style="max-width: 1140px;">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <a routerLink="../book">
-                        <img routerLink="../login" src={{book.img}} alt={{book.name}} (click)="addDashBoard(book)">
+                    <a>
+                        <img routerLink="../book" src={{book.img}} alt={{book.name}} (click)="addDashBoard(book)">
                     </a>
                 </div>
                 

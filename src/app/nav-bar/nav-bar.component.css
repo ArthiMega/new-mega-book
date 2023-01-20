@@ -27,7 +27,9 @@ ul li {display: inline-block;}
         position:inherit
         } 
         .navbar1{
-
-                margin-left: 1150px;
+                margin-left: 1120px;
         }
-      
+      .nav-item{
+        padding-left: 10px;
+
+      }

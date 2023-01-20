@@ -35,6 +35,11 @@
                 This field is required.
               </div>
             </div>
+            <div *ngIf="formValue.errors?.['pattern']">
+              Password must contain at least one number, one uppercase and a
+              lowercase letter and at least 8 characters<br />Password cannot
+              contain whitespace
+            </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="typePasswordX-2">Confirm ppassword</label>

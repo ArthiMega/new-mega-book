@@ -27,32 +27,36 @@ export class HomeComponent implements OnInit {
     this.crudservice.getAllBooks().subscribe(data=>{
       this.books = data;
     });
+    this.getDashboardBooks();  
   }
-  getBooks(){
+  getDashboardBooks(){
     this.auth.getDashboard().subscribe(dashBoard=>{
       this.userReadings = dashBoard;
     })
   }
-  checkDuplicates(book:any):any{
-    let len = book.length;
-    for(let obj in book){
-      // if(obj.) 
+  checkDuplicates(book:Object):any{
+    this.getDashboardBooks();
+    for(let obj of this.userReadings){
+      if(obj.email ===this.currentUser && obj.mybooks.id === this.homeModuleObj.mybooks.id) {
+        return false;
+      }
     }
-    this.getBooks();
-    console.log(this.userReadings)
     return true;
   }
-  addDashBoard(item:any){
+  addDashBoard(item:Object){
     this.homeModuleObj.email = this.auth.getEmail();
     this.homeModuleObj.mybooks = item;
-    //console.log(this.homeModuleObj);
+    sessionStorage.setItem('bookid',this.homeModuleObj.mybooks.id)
     this.currentUser = this.auth.getEmail();
+    this.getDashboardBooks();
+    if(this.checkDuplicates(this.homeModuleObj)){
       this.auth.postDashBoard(this.homeModuleObj)
       .subscribe(
         res=>{
-          //console.log(res);
+          console.log(res);
         }
       );
+    }
   }
   
 }

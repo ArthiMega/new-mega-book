@@ -2,6 +2,7 @@ import { Observable, of, throwError,map } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,9 @@ export class AuthService {
   userId!:number;
   admin:boolean = false;
   userEmail!:string;
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, 
+            private http: HttpClient,
+            private toastr:ToastrService) {}
 
   setToken(token: string): void {
     sessionStorage.setItem('token', token);
@@ -42,7 +45,7 @@ export class AuthService {
   login(email:string, password:string ){
   if(email === "arthi@test.com" && password ==="567"){
     this.setToken('zyxwvutsrqponmlkjihgfedcba');
-    alert("Logged in successfully!");
+    this.toastr.success("Logged in successfully!");
     this.isAdmin();
     this.router.navigate(['adminpages']);
   }
@@ -59,6 +62,7 @@ export class AuthService {
       this.setEmail(email);
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       alert("Logged in successfully!")
+      this.toastr.success("Logged in successfully!");
       this.router.navigate(['home']);
     }
     else
@@ -81,8 +85,5 @@ export class AuthService {
   }
 getDashboard(){
   return this.http.get(`${this.baseURL}myreading`)
-}
-isNewUser(){
-  
 }
 }

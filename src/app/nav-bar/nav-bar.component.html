@@ -29,17 +29,17 @@
       <!-- Left links -->
       <div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li routerLinkActive="active" class="nav-item">
-          <a class="nav-link" routerLink="/home">Home</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" >Home</a>
         </li>
-        <li *ngIf="auth.isLoggedIn()" routerLinkActive="active" class="nav-item">
-          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        <li *ngIf="auth.isLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" >Dashboard</a>
         </li>
-        <li routerLinkActive="active" class="nav-item">
-          <a class="nav-link" routerLink="/aboutus">About Us</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/aboutus" routerLinkActive="active" >About</a>
         </li>
-        <li routerLinkActive="active" class="nav-item">
-          <a class="nav-link" routerLink="/contactus">Contact Us</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contactus" routerLinkActive="active" >Contact</a>
         </li>
       </ul>
     </div>
@@ -49,30 +49,15 @@
 
     <!-- Right elements -->
     <div class="navbar w-100 order-3">
-     
-
+  
       <!-- Notifications -->
-      
-      <!-- <div *ngIf="nav.visible" class="dropdown">
-        <a
-          class="text-reset"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          aria-expanded="false"
-        >
-        </a>
-        <i class="fas fa-bell"></i>
-        <span class="badge rounded-pill badge-notification bg-danger"></span>
-      </div> -->
-      
       <div *ngIf="!auth.isLoggedIn(); else logout1" class="navbar1">
         <a routerLink="/login">
           <button type="button"class="btn btn me-3">
             Login
           </button>
         </a>
-        <a routerLink="/register">
+        <a routerLink="register">
           <button type="button"class="btn btn-primary me-3">
             Sign up for free
           </button>
