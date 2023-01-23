@@ -2,16 +2,13 @@ import { HttpClient,HttpEvent, HttpErrorResponse, HttpHeaders, HttpRequest } fro
 import { Injectable } from '@angular/core';
 import { catchError, map, retry } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { User } from '../user';
 
 @Injectable({
   providedIn: 'root' 
 })
 export class CRUDService {
   private baseURL = 'http://localhost:3000/';
-  todo = null;
   constructor(private http: HttpClient) {
-    
    }
    myReadings:string[] = [];
   getUserInfo(){
@@ -20,8 +17,8 @@ export class CRUDService {
   getAllBooks(){
     return this.http.get(this.baseURL+'books');
   }
-  getIndividualBook(id:number){
-    return this.http.get(this.baseURL+'books/'+id);
+  getIndividualBook(bookId:number):any{
+    return this.http.get(this.baseURL+'books/'+bookId);
   }
    
   postUser(data:any){
@@ -41,18 +38,5 @@ export class CRUDService {
   updateBook(id:any){
     return this.http.put(this.baseURL +'books/',id)
   }
-  uploadfile(file: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
-
-    formData.append('file', file);
-
-    const req = new HttpRequest('POST', `${this.baseURL}/upload`, formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
-
-    return this.http.request(req);
-  }
-  
 }
  

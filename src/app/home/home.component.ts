@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
       this.auth.postDashBoard(this.homeModuleObj)
       .subscribe(
         res=>{
-          console.log(res);
+          
         }
       );
     }

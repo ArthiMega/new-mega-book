@@ -10,6 +10,8 @@ import { CRUDService } from 'src/app/service/crud.service';
 })
 export class ViewUserComponent implements OnInit {
   users!:any;
+  dashBoard!:any;
+  searchText:string ="";
   constructor(private crudservice:CRUDService,
               private auth:AuthService,
               private route:Router
@@ -19,12 +21,21 @@ export class ViewUserComponent implements OnInit {
       this.users = response;
     })
   }
-
+viewUserBooks(){
+  this.auth.getDashboard().subscribe(data=>{
+  this.dashBoard = data;
+  })
+}
   ngOnInit() {
     if(!this.auth.isAdmin()){
       this.route.navigate(['../home'])
     }
     this.viewUsers();
+    this.viewUserBooks();
+  }
+  onSearchTextEnterd(searchValue:string){
+    this.searchText = searchValue;
+    // console.log(this.searchText);
   }
 
 }

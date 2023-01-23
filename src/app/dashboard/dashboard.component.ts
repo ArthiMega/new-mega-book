@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   users!:any;
   books!:any;
   useremail!:any
+  userEmail = this.auth.getEmail();
   constructor(private auth:AuthService,
               private crudservice:CRUDService) { 
    }
@@ -32,6 +33,12 @@ export class DashboardComponent implements OnInit {
       this.books = res;
     })
   }
-  userEmail = this.auth.getEmail();
-    
+  isReaded():any{
+    if(sessionStorage.getItem('bookid') === null){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }    
 }

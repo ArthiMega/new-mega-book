@@ -9,7 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   baseURL = "http://localhost:3000/";
-  userId!:number;
+  userId!:any;
+  message:string='';
   admin:boolean = false;
   userEmail!:string;
   constructor(private router: Router, 
@@ -35,12 +36,16 @@ export class AuthService {
   }
 
   logout() {
+      sessionStorage.removeItem('bookid')
       sessionStorage.removeItem('token');
       this.router.navigate(['login']);
   }
 
   isAdmin(){
     return this.getToken()=='zyxwvutsrqponmlkjihgfedcba';
+  }
+  getUser(){
+    return this.http.get(this.baseURL+'user-data');
   }
   login(email:string, password:string ){
   if(email === "arthi@test.com" && password ==="567"){
@@ -50,15 +55,13 @@ export class AuthService {
     this.router.navigate(['adminpages']);
   }
   else{
-  this.http.get<any>("http://localhost:3000/user-data")
+  this.http.get<any>(`${this.baseURL}user-data`)
   .subscribe(res=>{
     const user = res.find((a:any)=>{
       this.userId = a.id;
-      // this.userEmail = email
       return a.email === email && a.password === password
     });
     if(user){
-      //console.log(res);
       this.setEmail(email);
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       this.toastr.success("Logged in successfully!","User",{"positionClass":"toast-top-right"});
@@ -66,7 +69,8 @@ export class AuthService {
     }
     else
     {
-      this.toastr.warning('Usernot found')
+      //this.toastr.warning('Usernot found')
+      this.message = "Username or password incorrect :("
       this.router.navigate(['login']);
     }
   },err=>{
@@ -84,5 +88,13 @@ export class AuthService {
   }
 getDashboard(){
   return this.http.get(`${this.baseURL}myreading`)
+}
+buyNow(data:any){
+  return this.http.post(`${this.baseURL}cart`,data).pipe(map((res:any)=>{
+    return res;
+  }))
+}
+getCart(){
+  return this.http.get(`${this.baseURL}cart`)
 }
 }

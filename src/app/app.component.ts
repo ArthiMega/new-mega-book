@@ -8,11 +8,7 @@ import { NavService } from './service/nav.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mega-book';
-  user = true;
-  admin = true;
-  posts: any;
-  
+  title = 'mega-book'; 
   constructor(public nav: NavService, private auth:AuthService){}
   isAdmn(){
     return this.auth.isAdmin()

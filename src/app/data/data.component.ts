@@ -12,8 +12,11 @@ export class DataComponent implements OnInit {
 individualUser!:any
 constructor(private auth:AuthService){}
   ngOnInit() {
-    this.auth.getIndividualUser().subscribe(response=>{
-      this.individualUser = response;
+    this.getindividualUser();
+  }
+  getindividualUser(){
+    this.auth.getIndividualUser().subscribe(data=>{
+      this.individualUser = data;
     })
   }
 }

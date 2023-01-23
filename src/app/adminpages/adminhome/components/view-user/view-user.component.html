@@ -4,6 +4,18 @@
     <li *ngFor="let user of users">{{user|json}}</li>
   </ul>
  </div> -->
+ <div class="input-group">
+  <div class="form-outline">
+    <input type="search"
+          class="form-control rounded"
+          placeholder="Search with user name"
+          aria-label="Search"
+          aria-describedby="search-addon"
+          [(ngModel)]="searchText"
+          (input)="onSearchTextEnterd(searchText)"
+    />
+  </div>
+</div>
 
  <div class="main">
   <h2>User Details</h2>
@@ -14,15 +26,19 @@
           <th scope="col">Id</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Books</th>
+          <th scope="col">Books Interested</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
-          <th>{{user.id}}</th>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.mybooks}}</td>
+          <th *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.id}}</th>
+          <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.name}}</td>
+          <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.email}}</td>
+          <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
+          <div *ngFor="let userBook of dashBoard">
+            <td class="col-sm-5" *ngIf="user.email === userBook.email">-{{userBook.mybooks.name}}</td>
+          </div>
+        </div>
         </tr>
       </tbody>
     </table>

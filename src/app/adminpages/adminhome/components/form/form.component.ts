@@ -4,6 +4,7 @@ import { CRUDService } from 'src/app/service/crud.service';
 import { Router } from '@angular/router';
 import { FormModule1 } from './form.module';
 import { AuthService } from 'src/app/service/authentication.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form',
@@ -18,7 +19,10 @@ export class FormComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, 
               private crudservice:CRUDService,
               private router:Router,
-              private auth:AuthService) { }
+              private auth:AuthService,
+              private toastr :ToastrService) {
+                
+                }
 
   ngOnInit() {
     if(!this.auth.isAdmin()){
@@ -43,12 +47,10 @@ export class FormComponent implements OnInit {
       response=>{
         console.log(response);
         this.formValue.reset();
-        alert("book details added!")
+        this.toastr.success("book details added!")
       },
       error=>{
-        alert("somthing went wrong!");
-      });
-      
+        this.toastr.error("somthing went wrong!");
+      });  
   }
-
 }

@@ -1,3 +1,9 @@
 .main{
     margin-left: 200px; 
 }
+.input-group{
+    display: flex;
+    justify-content:right;
+    margin-top: 50px;
+    padding-right: 100px;
+}
