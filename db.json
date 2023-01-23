@@ -255,23 +255,55 @@
         "id": 1
       },
       "id": 13
+    },
+    {
+      "email": null,
+      "mybooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "id": 1
+      },
+      "id": 14
     }
   ],
   "cart": [
     {
-      "name": "Batman curse of the white knight",
-      "author": "James",
-      "price": 350,
-      "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
-      "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+      "email": "art@gmail.com",
+      "cartedBooks": {
+        "name": "Gaming Daimensions in apocalypse",
+        "author": "Bond",
+        "price": 250,
+        "img": "http://localhost:4200/assets/images/gamingDimentionals.webp",
+        "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
+        "id": 2
+      },
       "id": 1
     },
     {
-      "name": "Number six criminal",
-      "author": "ED Brubaker Sean Phillips",
-      "price": 550,
-      "img": "http://localhost:4200/assets/images/girl.jpg",
-      "about": "The BAU goes to Detroit to track an UnSub with a rapidly changing MO. Also, Blake's husband returns from overseas with a life-changing career proposition for her.#6 is the twenty-second episode of Season Eight and the 184th overall of Criminal Minds. The BAU goes to Detroit to track down an escalating killer with a ...",
+      "email": "art@gmail.com",
+      "cartedBooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "id": 1
+      },
+      "id": 2
+    },
+    {
+      "email": "art@gmail.com",
+      "cartedBooks": {
+        "name": "Number six criminal",
+        "author": "ED Brubaker Sean Phillips",
+        "price": 550,
+        "img": "http://localhost:4200/assets/images/girl.jpg",
+        "about": "The BAU goes to Detroit to track an UnSub with a rapidly changing MO. Also, Blake's husband returns from overseas with a life-changing career proposition for her.#6 is the twenty-second episode of Season Eight and the 184th overall of Criminal Minds. The BAU goes to Detroit to track down an escalating killer with a ...",
+        "id": 3
+      },
       "id": 3
     }
   ]

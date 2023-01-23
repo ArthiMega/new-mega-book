@@ -97,4 +97,7 @@ buyNow(data:any){
 getCart(){
   return this.http.get(`${this.baseURL}cart`)
 }
+isCarted(){
+  
+}
 }

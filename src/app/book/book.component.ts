@@ -14,12 +14,14 @@ export class BookComponent implements OnInit {
   anchor :string= "Read more";
   expand: boolean = false;
   id = sessionStorage.getItem('bookid');
+  cartItems !:any; 
   constructor(private crudservice :CRUDService,
               private router: Router,
               private auth:AuthService) { }
   ngOnInit() {
    console.log(this.id) 
    this.getBook();
+   this.getAllCart();
   }
   getBook(){
     this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((response:any)=>{
@@ -33,14 +35,28 @@ goToTop(){
     behavior:'smooth'
   })
 }
-isInCart(id:any):any{
+getAllCart(){
   this.auth.getCart().subscribe(data=>{
-    
-  })
+    this.cartItems = data;
+  });
+}
+isInCart(id:any):any{
+  this.getAllCart();
+  for(let item of this.cartItems){
+    //console.log(item.email === sessionStorage.getItem('email') );
+    //console.log(item.cartedBooks.id === id);
+    console.log(item.cartedBooks.id);
+    console.log(id);
+    console.log(item.cartedBooks.id == id)
+    if(item.email === sessionStorage.getItem('email')  && item.cartedBooks.id == id){
+      return true;
+    }
+  }
+  return false;
 }
 showMore(){
-  sessionStorage.setItem('bookid',this.book.id);
-  if(sessionStorage.getItem('isBuyed')==='yes'){
+  //console.log(this.isInCart(this.bookId))
+  if(this.isInCart(this.bookId)){
     this.expand = !this.expand;
     this.anchor = !this.expand ? "Read more":""
   }

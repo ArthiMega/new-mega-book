@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../service/authentication.service';
 import { CRUDService } from '../service/crud.service';
 import { BuyNowModule } from './buy-now.module';
@@ -16,12 +17,11 @@ export class BuyNowPageComponent implements OnInit {
   currentUser:any;
   constructor(private crudservice: CRUDService,
                private auth: AuthService,
+               private router: Router
                ) { }
 
   ngOnInit() {
-    this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((res:any)=>{
-      this.IndividualBook = res;
-    })
+    this.getIndividualBook();
     this.getCartDetails();
   }
   getCartDetails(){
@@ -29,10 +29,15 @@ export class BuyNowPageComponent implements OnInit {
       this.cardDetails = cart;
     })
   }
+  getIndividualBook(){
+    this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((res:any)=>{
+      this.IndividualBook = res;
+    });
+  }
   checkDuplicates(cart:Object):any{
     this.getCartDetails();
     for(let obj of this.cardDetails){
-      if(obj.email === this.currentUser && obj.mybooks.id === this.buyNowModuleObj.cartedBooks.id){
+      if(obj.email === this.currentUser && obj.cartedBooks.id === this.buyNowModuleObj.cartedBooks.id){
         return false
       }
     }
@@ -44,12 +49,11 @@ export class BuyNowPageComponent implements OnInit {
     this.buyNowModuleObj.cartedBooks = item;
     this.getCartDetails();
     if(this.checkDuplicates(this.buyNowModuleObj)){
-      this.auth.buyNow(this.IndividualBook).subscribe(
-        res=>{
-          // console.log(res)
-          sessionStorage.setItem('isBuyed','yes');
-        }
-      )
+      this.auth.buyNow(this.buyNowModuleObj).subscribe(res=>{
+        console.log(res);
+        this.IndividualBook = false;
+      })
     }
+    this.router.navigate(['../book']);
   }
 }
