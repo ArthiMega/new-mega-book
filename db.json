@@ -1,4 +1,11 @@
 {
+  "admin-data":[
+   {
+    "email":"admin@megabook.com",
+    "password":"Admin@123"
+   }
+
+  ],
   "user-data": [
     {
       "name": "Arthi Meganathan",
@@ -267,6 +274,18 @@
         "id": 1
       },
       "id": 14
+    },
+    {
+      "email": "merlins@gmail.com",
+      "mybooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "id": 1
+      },
+      "id": 15
     }
   ],
   "cart": [
@@ -305,6 +324,18 @@
         "id": 3
       },
       "id": 3
+    },
+    {
+      "email": "merlins@gmail.com",
+      "cartedBooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "id": 1
+      },
+      "id": 4
     }
   ]
 }

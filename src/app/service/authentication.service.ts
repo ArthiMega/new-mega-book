@@ -13,6 +13,7 @@ export class AuthService {
   message:string='';
   admin:boolean = false;
   userEmail!:string;
+  adminDetails:any;
   constructor(private router: Router, 
             private http: HttpClient,
             private toastr:ToastrService) {}
@@ -47,8 +48,23 @@ export class AuthService {
   getUser(){
     return this.http.get(this.baseURL+'user-data');
   }
+  adminlogin(){
+    this.http.get<any>(`${this.baseURL}admin-data`)
+    .subscribe(res=>{
+      this.adminDetails = res;
+        // return res.email === email && res.password === password
+      });
+  }
+  checkAdmin(email:string,password:string):any{
+    for(let admin of this.adminDetails){
+      if(admin.email === email && admin.password === password ){
+        return true;
+      }
+    }
+    return false;
+  }
   login(email:string, password:string ){
-  if(email === "arthi@test.com" && password ==="567"){
+  if(this.checkAdmin(email,password)){
     this.setToken('zyxwvutsrqponmlkjihgfedcba');
     this.toastr.success("Logged in successfully!");
     this.isAdmin();

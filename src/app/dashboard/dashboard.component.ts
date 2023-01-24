@@ -15,13 +15,16 @@ export class DashboardComponent implements OnInit {
   books!:any;
   useremail!:any
   userEmail = this.auth.getEmail();
+  cartedBooks:any;
   constructor(private auth:AuthService,
-              private crudservice:CRUDService) { 
+              private crudservice:CRUDService,
+              private router: Router) { 
    }
 
    ngOnInit(): void {
     this.getBooks();
     this.getUser();
+    this.getPurchasedBookDetails()
   }
   getUser(){
     this.auth.getDashboard().subscribe(data=>{
@@ -33,6 +36,12 @@ export class DashboardComponent implements OnInit {
       this.books = res;
     })
   }
+  getPurchasedBookDetails(){
+    this.auth.getCart().subscribe(res=>{
+      this.cartedBooks = res;
+      console.log(res);
+    })
+  }
   isReaded():any{
     if(sessionStorage.getItem('bookid') === null){
       return true;
@@ -40,5 +49,9 @@ export class DashboardComponent implements OnInit {
     else{
       return false;
     }
-  }    
+  }
+  readNow(id:any){
+    sessionStorage.setItem('bookid',id)
+    this.router.navigate(['book'])
+  }
 }

@@ -49,8 +49,6 @@ import { BuyNowPageComponent } from './buy-now-page/buy-now-page.component';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
-    
-    //YouTubePlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

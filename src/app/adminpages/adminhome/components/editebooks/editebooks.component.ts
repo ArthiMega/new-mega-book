@@ -23,6 +23,7 @@ export class EditebooksComponent implements OnInit {
   deleteBook(id:any){
     if(window.confirm('Are you sure you want to delete?')){
       this.crudservice.deleteBook(id).subscribe(data=>{
+        window.location.reload();
         this.router.navigate(['adminpages/editbooks'])
       })
     }

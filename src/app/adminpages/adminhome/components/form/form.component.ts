@@ -48,6 +48,7 @@ export class FormComponent implements OnInit {
         console.log(response);
         this.formValue.reset();
         this.toastr.success("book details added!")
+        this.router.navigate(['/adminpages/editbooks'])
       },
       error=>{
         this.toastr.error("somthing went wrong!");
