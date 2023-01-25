@@ -335,6 +335,18 @@
         "id": 1
       },
       "id": 4
+    },
+    {
+      "email": "merlins@gmail.com",
+      "cartedBooks": {
+        "name": "Gaming Daimensions in apocalypse",
+        "author": "Bond",
+        "price": 250,
+        "img": "http://localhost:4200/assets/images/gamingDimentionals.webp",
+        "about": "A female student went missing on school grounds. As she searches for the truth, Julia uncovers a dangerous world full of monsters, demons, and a powerful reaper ...",
+        "id": 2
+      },
+      "id": 5
     }
   ]
 }

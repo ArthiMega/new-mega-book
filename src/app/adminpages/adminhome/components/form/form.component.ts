@@ -38,15 +38,12 @@ export class FormComponent implements OnInit {
     });
 
   }
-  updatePhoto() {
-    this.obj = { ...this.formValue.value, ...this.obj };
-  }
+
   onFileSelect(input: any) {
     console.log(input.files);
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = (event: any) => {
-        console.log('Got here: ', event.target.result);
         this.obj.img = event.target.result;
       }
       reader.readAsDataURL(input.files[0]);
@@ -54,10 +51,8 @@ export class FormComponent implements OnInit {
   }
   postBookDetails() {
     this.obj = { ...this.formValue.value, ...this.obj };
-    console.log(this.obj);
     this.crudservice.postBooks(this.obj).subscribe(
       response => {
-        console.log(response);
         this.formValue.reset();
         this.toastr.success("book details added!")
         this.router.navigate(['/adminpages/editbooks'])

@@ -1,26 +1,4 @@
-<h1>Reasently Readed</h1>
-<div *ngFor="let user of users">
-    <div *ngIf="user.email === userEmail">
-        <div class="center1">
-            <div class="card mb-3" style="max-width: 1040px; max-height: fit-content;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src={{user.mybooks.img}} (click)="readNow(user.mybooks.id)" class="img-fluid rounded-start"
-                            alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{user.mybooks.name}}</h5>
-                            <p class="card-text">{{user.mybooks.about}}</p>
-                            <!-- <p class="card-text"><small class="text-muted">Last seen 3 mins ago</small></p> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr>
+
 <h1>Purchased Books</h1>
 <div *ngFor="let carts of cartedBooks">
     <div *ngIf="carts.email === userEmail">
@@ -35,6 +13,29 @@
                         <div class="card-body">
                             <h5 class="card-title">{{carts.cartedBooks.name}}</h5>
                             <p class="card-text">{{carts.cartedBooks.about}}</p>
+                            <!-- <p class="card-text"><small class="text-muted">Last seen 3 mins ago</small></p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 style="background-color: antiquewhite;">Reasently Readed</h1>
+<div *ngFor="let user of users">
+    <div *ngIf="user.email === userEmail">
+        <div class="center1">
+            <div class="card mb-3" style="max-width: 1040px; max-height: fit-content;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src={{user.mybooks.img}} (click)="readNow(user.mybooks.id)" class="img-fluid rounded-start"
+                            alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{user.mybooks.name}}</h5>
+                            <p class="card-text">{{user.mybooks.about}}</p>
                             <!-- <p class="card-text"><small class="text-muted">Last seen 3 mins ago</small></p> -->
                         </div>
                     </div>
