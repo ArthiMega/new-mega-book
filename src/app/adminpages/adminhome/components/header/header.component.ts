@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/service/authentication.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
-  logout(){
+  logout() {
     this.auth.logout();
   }
 

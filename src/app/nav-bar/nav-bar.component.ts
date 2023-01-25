@@ -14,14 +14,14 @@ import { RegistrationComponent } from '../registration/registration.component';
 })
 export class NavBarComponent implements OnInit {
   enteredSearchValue: string = "";
-  constructor(public nav: NavService, public auth:AuthService, private modalService: NgbModal) {
-   }
-  
+  constructor(public nav: NavService, public auth: AuthService, private modalService: NgbModal) {
+  }
+
   ngOnInit() {
   }
   @Output()
   searchTextChaned: EventEmitter<string> = new EventEmitter<string>();//property
-  onSearchTextChanged(){
+  onSearchTextChanged() {
     this.searchTextChaned.emit(this.enteredSearchValue);
   }
 }

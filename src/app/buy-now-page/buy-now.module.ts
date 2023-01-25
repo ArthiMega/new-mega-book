@@ -1,6 +1,6 @@
 
 export class BuyNowModule {
-id!:number;
-email:string= "";
-cartedBooks:any;
+    id!: number;
+    email: string = "";
+    cartedBooks: any;
 }

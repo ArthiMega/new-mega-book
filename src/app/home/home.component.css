@@ -1,42 +1,54 @@
-h1{
+h1 {
   display: flex;
   justify-content: center;
 }
-.boddy{
+
+.boddy {
   margin-left: 250px;
   margin-right: 250px;
 }
+
 img {
   width: 400px;
   height: 500px;
 }
 
-ngb-rating{
+ngb-rating {
   font-size: 30px;
 }
-h3,p, .haha{
+
+h3,
+p,
+.haha {
   padding-left: 50px;
 }
-p{
+
+p {
   font-size: larger;
 }
-ul{
+
+ul {
   list-style: none;
 }
-a{
+
+a {
   position: relative;
 }
-.card-footer{
+
+.card-footer {
   height: 0px;
 }
-.highlight{
+
+.highlight {
   background-color: aqua;
 }
-.input-group{
+
+.input-group {
   margin-left: 34px;
 }
-.form-control{
-  position:fixed;
+
+.form-control {
+  position: fixed;
   right: 430px;
   top: 35px;
   width: 200px;

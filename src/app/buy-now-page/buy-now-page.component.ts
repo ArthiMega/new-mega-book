@@ -10,46 +10,46 @@ import { BuyNowModule } from './buy-now.module';
   styleUrls: ['./buy-now-page.component.css']
 })
 export class BuyNowPageComponent implements OnInit {
-  IndividualBook!:any
+  IndividualBook!: any
   bookId = sessionStorage.getItem('bookid');
-  cardDetails:any;
-  buyNowModuleObj:BuyNowModule = new BuyNowModule();
-  currentUser:any;
+  cardDetails: any;
+  buyNowModuleObj: BuyNowModule = new BuyNowModule();
+  currentUser: any;
   constructor(private crudservice: CRUDService,
-               private auth: AuthService,
-               private router: Router
-               ) { }
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getIndividualBook();
     this.getCartDetails();
   }
-  getCartDetails(){
-    this.auth.getCart().subscribe(cart=>{
+  getCartDetails() {
+    this.auth.getCart().subscribe(cart => {
       this.cardDetails = cart;
     })
   }
-  getIndividualBook(){
-    this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((res:any)=>{
+  getIndividualBook() {
+    this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((res: any) => {
       this.IndividualBook = res;
     });
   }
-  checkDuplicates(cart:Object):any{
+  checkDuplicates(cart: Object): any {
     this.getCartDetails();
-    for(let obj of this.cardDetails){
-      if(obj.email === this.currentUser && obj.cartedBooks.id === this.buyNowModuleObj.cartedBooks.id){
+    for (let obj of this.cardDetails) {
+      if (obj.email === this.currentUser && obj.cartedBooks.id === this.buyNowModuleObj.cartedBooks.id) {
         return false
       }
     }
     return true;
   }
-  buyNow(item:Object){
+  buyNow(item: Object) {
     this.currentUser = this.auth.getEmail();
     this.buyNowModuleObj.email = this.currentUser;
     this.buyNowModuleObj.cartedBooks = item;
     this.getCartDetails();
-    if(this.checkDuplicates(this.buyNowModuleObj)){
-      this.auth.buyNow(this.buyNowModuleObj).subscribe(res=>{
+    if (this.checkDuplicates(this.buyNowModuleObj)) {
+      this.auth.buyNow(this.buyNowModuleObj).subscribe(res => {
         console.log(res);
         this.IndividualBook = false;
       })

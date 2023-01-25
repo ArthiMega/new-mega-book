@@ -1,19 +1,21 @@
-*{
+* {
     padding-left: px;
     padding-right: 50;
 }
-i{
+
+i {
     font-size: 50px;
     display: flex;
     justify-content: center;
 }
-pre{
+
+pre {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     justify-content: center;
 }
-h1{
+
+h1 {
     display: flex;
     justify-content: center;
 }
-

@@ -1,17 +1,11 @@
- <div class="input-group">
+<div class="input-group">
   <div class="form-outline">
-    <input type="search"
-          class="form-control rounded"
-          placeholder="Search with user name"
-          aria-label="Search"
-          aria-describedby="search-addon"
-          [(ngModel)]="searchText"
-          (input)="onSearchTextEnterd(searchText)"
-    />
+    <input type="search" class="form-control rounded" placeholder="Search with user name" aria-label="Search"
+      aria-describedby="search-addon" [(ngModel)]="searchText" (input)="onSearchTextEnterd(searchText)" />
   </div>
 </div>
 
- <div class="main">
+<div class="main">
   <h2>User Details</h2>
   <section id="bookdetails">
     <table class="table table-hover table-bordered">
@@ -30,20 +24,19 @@
           <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.name}}</td>
           <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.email}}</td>
           <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
-          <div *ngFor="let userBook of dashBoard">
-            <td  *ngIf="user.email === userBook.email">-{{userBook.mybooks.name}}</td>
-          </div>
+            <div *ngFor="let userBook of dashBoard">
+              <td *ngIf="user.email === userBook.email">-{{userBook.mybooks.name}}</td>
+            </div>
           </div>
           <td>
-          <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
-            <div *ngFor="let cart of cartedBooks">
-              <td *ngIf="user.email === cart.email">-{{cart.cartedBooks.name}}</td>
-            </div>
-           </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
- </div>
- 
+            <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
+              <div *ngFor="let cart of cartedBooks">
+          <td *ngIf="user.email === cart.email">-{{cart.cartedBooks.name}}</td>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>

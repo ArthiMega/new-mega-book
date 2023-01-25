@@ -13,35 +13,35 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FormComponent implements OnInit {
   formValue !: FormGroup;
-  formModuleObj :FormModule1 = new FormModule1();
-  bookDetails!:any;
+  formModuleObj: FormModule1 = new FormModule1();
+  bookDetails!: any;
   public obj: any = {};
 
-  constructor(private formBuilder:FormBuilder, 
-              private crudservice:CRUDService,
-              private router:Router,
-              private auth:AuthService,
-              private toastr :ToastrService) {
-                
-                }
+  constructor(private formBuilder: FormBuilder,
+    private crudservice: CRUDService,
+    private router: Router,
+    private auth: AuthService,
+    private toastr: ToastrService) {
+
+  }
 
   ngOnInit() {
-    if(!this.auth.isAdmin()){
+    if (!this.auth.isAdmin()) {
       this.router.navigate(['../home'])
     }
     this.formValue = this.formBuilder.group({
-      name:['',Validators.required],
-      author:['',Validators.required],
-      price:['',Validators.required],
-      about:['',Validators.required],
-      file:['',Validators.required]
+      name: ['', Validators.required],
+      author: ['', Validators.required],
+      price: ['', Validators.required],
+      about: ['', Validators.required],
+      file: ['', Validators.required]
     });
-    
+
   }
   updatePhoto() {
     this.obj = { ...this.formValue.value, ...this.obj };
   }
-  onFileSelect(input:any) {
+  onFileSelect(input: any) {
     console.log(input.files);
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -52,18 +52,18 @@ export class FormComponent implements OnInit {
       reader.readAsDataURL(input.files[0]);
     }
   }
-  postBookDetails(){
+  postBookDetails() {
     this.obj = { ...this.formValue.value, ...this.obj };
     console.log(this.obj);
     this.crudservice.postBooks(this.obj).subscribe(
-      response=>{
+      response => {
         console.log(response);
         this.formValue.reset();
         this.toastr.success("book details added!")
         this.router.navigate(['/adminpages/editbooks'])
       },
-      error=>{
+      error => {
         this.toastr.error("somthing went wrong!");
-      });  
+      });
   }
 }

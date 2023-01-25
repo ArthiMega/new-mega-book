@@ -11,40 +11,40 @@ import { NavService } from '../service/nav.service';
 })
 export class DashboardComponent implements OnInit {
 
-  users!:any;
-  books!:any;
-  useremail!:any
+  users!: any;
+  books!: any;
+  useremail!: any
   userEmail = this.auth.getEmail();
-  cartedBooks:any;
-  constructor(private auth:AuthService,
-              private crudservice:CRUDService,
-              private router: Router) { 
-   }
+  cartedBooks: any;
+  constructor(private auth: AuthService,
+    private crudservice: CRUDService,
+    private router: Router) {
+  }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.getBooks();
     this.getUser();
     this.getPurchasedBookDetails()
   }
-  getUser(){
-    this.auth.getDashboard().subscribe(data=>{
+  getUser() {
+    this.auth.getDashboard().subscribe(data => {
       this.users = data;
     })
   }
-  getBooks(){
-    this.crudservice.getAllBooks().subscribe(res=>{
+  getBooks() {
+    this.crudservice.getAllBooks().subscribe(res => {
       this.books = res;
     })
   }
-  getPurchasedBookDetails(){
-    this.auth.getCart().subscribe(res=>{
+  getPurchasedBookDetails() {
+    this.auth.getCart().subscribe(res => {
       this.cartedBooks = res;
       console.log(res);
     })
   }
 
-  readNow(id:any){
-    sessionStorage.setItem('bookid',id)
+  readNow(id: any) {
+    sessionStorage.setItem('bookid', id)
     this.router.navigate(['book'])
   }
 }

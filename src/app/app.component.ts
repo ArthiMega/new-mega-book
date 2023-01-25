@@ -6,14 +6,12 @@ import { NavService } from './service/nav.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'mega-book'; 
-  constructor(public nav: NavService, private auth:AuthService){}
-  isAdmn(){
+  title = 'mega-book';
+  constructor(public nav: NavService, private auth: AuthService) { }
+  isAdmn() {
     return this.auth.isAdmin()
-   }
-  
-  
+  }
 }

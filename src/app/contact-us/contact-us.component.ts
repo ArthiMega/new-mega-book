@@ -9,7 +9,7 @@ import { NavService } from '../service/nav.service';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor(public nav:NavService) { 
+  constructor(public nav: NavService) {
     this.nav.show();
   }
 

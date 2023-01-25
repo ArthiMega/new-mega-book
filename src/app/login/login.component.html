@@ -7,63 +7,50 @@
 
             <h3 class="mb-5">Sign in</h3>
             <form [formGroup]="login" (ngSubmit)="logindata(login)">
-            <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" formControlName="email" placeholder="email" class="form-control form-control-lg" />
-            </div>
-            <div *ngIf="login.controls['email'].invalid && (login.controls['email'].dirty || login.controls['email'].touched)" class="alert alert-danger">
-              <div *ngIf="login.controls['email'].errors?.['required']">
-                This field is required.
+              <div class="form-outline mb-4">
+                <input type="email" id="typeEmailX-2" formControlName="email" placeholder="email"
+                  class="form-control form-control-lg" />
               </div>
-            </div>
-            <div class="form-group inner-addon right-addon">
-              <div class="input-group col-6 mx-auto">
-                <input name="password"
-                    [type]="showPassword ? 'text' : 'password'"
-                    class="form-control form-control-lg" 
-                    id="password-field" placeholder="Password"
-                    formControlName="password" >
-                <div>
-                  <i alt="show" class="far fa-eye eye-show" 
-                  (click)="showPassword = !showPassword"
-                  [class.hide]="showPassword"></i>
-                  <i alt="hide" class="far fa-eye-slash eye-hide" 
-                  (click)="showPassword = !showPassword"
-                  [class.hide]="!showPassword"></i>
+              <div
+                *ngIf="login.controls['email'].invalid && (login.controls['email'].dirty || login.controls['email'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="login.controls['email'].errors?.['required']">
+                  This field is required.
                 </div>
               </div>
-            </div>
-            <!-- <div class="form-outline mb-4">
-              <label class="form-label" for="typePasswordX-2">Password</label>
-              <input [type]="showPassword ? 'text':'password'" id="typePasswordX-2" formControlName="password" class="form-control form-control-lg" 
-               />
-              <div>
-                <i alt="show" class="far fa-eye eye-show" 
-                (click)="showPassword = !showPassword"
-                [class.hide] = "showPassword"></i>
-                <i alt="hide" class="far fa-eye-slash eye-hide"
-                (click)="showPassword = !showPassword"
-                [class.hide]="!showPassword"></i>
+              <div class="form-group inner-addon right-addon">
+                <div class="input-group col-6 mx-auto">
+                  <input name="password" [type]="showPassword ? 'text' : 'password'"
+                    class="form-control form-control-lg" id="password-field" placeholder="Password"
+                    formControlName="password">
+                  <div>
+                    <i alt="show" class="far fa-eye eye-show" (click)="showPassword = !showPassword"
+                      [class.hide]="showPassword"></i>
+                    <i alt="hide" class="far fa-eye-slash eye-hide" (click)="showPassword = !showPassword"
+                      [class.hide]="!showPassword"></i>
+                  </div>
+                </div>
               </div>
-            </div> -->
-            <div *ngIf="login.controls['password'].invalid && (login.controls['password'].dirty || login.controls['password'].touched)" class="alert alert-danger">
-              <div *ngIf="login.controls['password'].errors?.['required']">
-                This field is required.
+              <div
+                *ngIf="login.controls['password'].invalid && (login.controls['password'].dirty || login.controls['password'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="login.controls['password'].errors?.['required']">
+                  This field is required.
+                </div>
               </div>
-            </div>
-            <div style="color: red;" class="alert alert-denger">
-              {{message}}
-            </div>
-            <div>Create New Account !
-             <a routerLink="/register">Register now</a>
-            </div>
-            <br/>
-            <button class="btn btn-primary btn-lg btn-block" type="submit" type="submit" [disabled]="!login.valid">Login</button>
-          </form>
+              <div style="color: red;" class="alert alert-denger">
+                {{message}}
+              </div>
+              <div>Create New Account !
+                <a routerLink="/register">Register now</a>
+              </div>
+              <br />
+              <button class="btn btn-primary btn-lg btn-block" type="submit" type="submit"
+                [disabled]="!login.valid">Login</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-

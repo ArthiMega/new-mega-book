@@ -1,6 +1,6 @@
 
 export class HomeModule {
-  id!:number;
-  email :any;
-  mybooks :any;
- }
+  id!: number;
+  email: any;
+  mybooks: any;
+}

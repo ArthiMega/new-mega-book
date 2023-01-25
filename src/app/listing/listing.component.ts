@@ -7,15 +7,15 @@ import { CRUDService } from '../service/crud.service';
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
-   userData!:any;
+  userData!: any;
   constructor(private crudservice: CRUDService) { }
 
   ngOnInit() {
   }
-  getAllUsers(){
+  getAllUsers() {
     this.crudservice.getUserInfo()
-    .subscribe(res=>{
-      this.userData = res;
-    })
+      .subscribe(res => {
+        this.userData = res;
+      })
   }
 }

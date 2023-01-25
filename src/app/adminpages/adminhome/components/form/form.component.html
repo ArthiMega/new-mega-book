@@ -1,4 +1,4 @@
-<section style="background-color: #d88abd;" >
+<section style="background-color: #d88abd;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -7,59 +7,71 @@
 
             <h3 class="mb-5">Book Details</h3>
             <form [formGroup]="formValue" (ngSubmit)="postBookDetails()">
-            <div class="form-outline mb-4">
-              <label class="form-label" for="bookname">Book mane</label>
-              <input type="text" id="bookname" formControlName="name" class="form-control form-control-lg" />
-            </div>
-            <div *ngIf="formValue.controls['name'].invalid && (formValue.controls['name'].dirty || formValue.controls['name'].touched)" class="alert alert-danger">
-              <div *ngIf="formValue.controls['name'].errors?.['required']">
-                This field is required.
+              <div class="form-outline mb-4">
+                <label class="form-label" for="bookname">Book mane</label>
+                <input type="text" id="bookname" formControlName="name" class="form-control form-control-lg" />
               </div>
-            </div>
+              <div
+                *ngIf="formValue.controls['name'].invalid && (formValue.controls['name'].dirty || formValue.controls['name'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="formValue.controls['name'].errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
 
-            <div class="form-outline mb-4">
-              <label class="form-label" for="author">Author</label>
-              <input #pass type="text" id="author" formControlName="author" class="form-control form-control-lg" />
-            </div>
-            <div *ngIf="formValue.controls['author'].invalid && (formValue.controls['author'].dirty || formValue.controls['author'].touched)" class="alert alert-danger">
-              <div *ngIf="formValue.controls['author'].errors?.['required']">
-                This field is required.
+              <div class="form-outline mb-4">
+                <label class="form-label" for="author">Author</label>
+                <input #pass type="text" id="author" formControlName="author" class="form-control form-control-lg" />
               </div>
-            </div>
+              <div
+                *ngIf="formValue.controls['author'].invalid && (formValue.controls['author'].dirty || formValue.controls['author'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="formValue.controls['author'].errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
 
-            <div class="form-outline mb-4">
-              <label class="form-label" for="price">Price</label>
-              <input #cpass type="number" formControlName="price" id="price" class="form-control form-control-lg" />
-            </div>
-            <div *ngIf="formValue.controls['price'].invalid && (formValue.controls['price'].dirty || formValue.controls['price'].touched)" class="alert alert-danger">
-              <div *ngIf="formValue.controls['price'].errors?.['required']">
-                This field is required.
+              <div class="form-outline mb-4">
+                <label class="form-label" for="price">Price</label>
+                <input #cpass type="number" formControlName="price" id="price" class="form-control form-control-lg" />
               </div>
-            </div>
-            <div class="form-outline mb-4">
-              <label class="form-label" for="about">About</label>
-              <input #cpass type="text" formControlName="about" id="about" class="form-control form-control-lg" />
-            </div>
-            <div *ngIf="formValue.controls['about'].invalid && (formValue.controls['about'].dirty || formValue.controls['about'].touched)" class="alert alert-danger">
-              <div *ngIf="formValue.controls['about'].errors?.['required']">
-                This field is required.
+              <div
+                *ngIf="formValue.controls['price'].invalid && (formValue.controls['price'].dirty || formValue.controls['price'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="formValue.controls['price'].errors?.['required']">
+                  This field is required.
+                </div>
               </div>
-            </div>
-            <div class="form-outline mb-4">
-              <label class="form-label" for="upload">Upload Image</label>
-              <input type="file" (change)="onFileSelect($event.target)" formControlName="file" id="upload" class="form-control form-control-lg" />
-            </div>
-            <div *ngIf="formValue.controls['file'].invalid && (formValue.controls['file'].dirty || formValue.controls['file'].touched)" class="alert alert-danger">
-              <div *ngIf="formValue.controls['file'].errors?.['required']">
-                This field is required.
+              <div class="form-outline mb-4">
+                <label class="form-label" for="about">About</label>
+                <input #cpass type="text" formControlName="about" id="about" class="form-control form-control-lg" />
               </div>
-            </div>
-            
-            <!-- Checkbox -->
+              <div
+                *ngIf="formValue.controls['about'].invalid && (formValue.controls['about'].dirty || formValue.controls['about'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="formValue.controls['about'].errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="upload">Upload Image</label>
+                <input type="file" (change)="onFileSelect($event.target)" formControlName="file" id="upload"
+                  class="form-control form-control-lg" />
+              </div>
+              <div
+                *ngIf="formValue.controls['file'].invalid && (formValue.controls['file'].dirty || formValue.controls['file'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="formValue.controls['file'].errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
 
-            <button id="redirect" class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!formValue.valid">Add Book</button>
-          
-          </form>
+              <!-- Checkbox -->
+
+              <button id="redirect" class="btn btn-primary btn-lg btn-block" type="submit"
+                [disabled]="!formValue.valid">Add Book</button>
+
+            </form>
           </div>
         </div>
       </div>

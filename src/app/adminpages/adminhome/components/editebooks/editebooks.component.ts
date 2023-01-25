@@ -11,19 +11,19 @@ import { CRUDService } from 'src/app/service/crud.service';
 })
 export class EditebooksComponent implements OnInit {
 
-  books!:any;
-  searchText:string ="";
-  constructor(private crudservice:CRUDService, 
-    private router:Router,
-    private auth:AuthService) { }
-  viewBooks(){
-    this.crudservice.getAllBooks().subscribe(response=>{
+  books!: any;
+  searchText: string = "";
+  constructor(private crudservice: CRUDService,
+    private router: Router,
+    private auth: AuthService) { }
+  viewBooks() {
+    this.crudservice.getAllBooks().subscribe(response => {
       this.books = response;
     })
   }
-  deleteBook(id:any){
-    if(window.confirm('Are you sure you want to delete?')){
-      this.crudservice.deleteBook(id).subscribe(data=>{
+  deleteBook(id: any) {
+    if (window.confirm('Are you sure you want to delete?')) {
+      this.crudservice.deleteBook(id).subscribe(data => {
         window.location.reload();
         this.router.navigate(['adminpages/editbooks'])
       })
@@ -31,14 +31,14 @@ export class EditebooksComponent implements OnInit {
   }
   ngOnInit() {
     this.viewBooks();
-    if(!this.auth.isAdmin()){
+    if (!this.auth.isAdmin()) {
       this.router.navigate(['../home'])
     }
   }
-  onSearchTextEnterd(searchValue:string){
+  onSearchTextEnterd(searchValue: string) {
     this.searchText = searchValue;
     // console.log(this.searchText);
   }
-  }
-  
+}
+
 
