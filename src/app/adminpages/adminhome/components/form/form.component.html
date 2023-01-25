@@ -7,21 +7,12 @@
 
             <h3 class="mb-5">Book Details</h3>
             <form [formGroup]="formValue" (ngSubmit)="postBookDetails()">
-              <div class="form-outline mb-4">
-                <label class="form-label" for="image">Book image Url</label>
-                <input type="text" id="image" formControlName="coverpage" class="form-control form-control-lg" />
-              </div>
-              <div *ngIf="formValue.controls['coverpage'].invalid && (formValue.controls['coverpage'].dirty || formValue.controls['coverpage'].touched)" class="alert alert-danger">
-                <div *ngIf="formValue.controls['coverpage'].errors?.['required']">
-                  This field is required.
-                </div>
-              </div>
             <div class="form-outline mb-4">
               <label class="form-label" for="bookname">Book mane</label>
-              <input type="text" id="bookname" formControlName="bookname" class="form-control form-control-lg" />
+              <input type="text" id="bookname" formControlName="name" class="form-control form-control-lg" />
             </div>
-            <div *ngIf="formValue.controls['bookname'].invalid && (formValue.controls['bookname'].dirty || formValue.controls['bookname'].touched)" class="alert alert-danger">
-              <div *ngIf="formValue.controls['bookname'].errors?.['required']">
+            <div *ngIf="formValue.controls['name'].invalid && (formValue.controls['name'].dirty || formValue.controls['name'].touched)" class="alert alert-danger">
+              <div *ngIf="formValue.controls['name'].errors?.['required']">
                 This field is required.
               </div>
             </div>
@@ -51,6 +42,15 @@
             </div>
             <div *ngIf="formValue.controls['about'].invalid && (formValue.controls['about'].dirty || formValue.controls['about'].touched)" class="alert alert-danger">
               <div *ngIf="formValue.controls['about'].errors?.['required']">
+                This field is required.
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="upload">Upload Image</label>
+              <input type="file" (change)="onFileSelect($event.target)" formControlName="file" id="upload" class="form-control form-control-lg" />
+            </div>
+            <div *ngIf="formValue.controls['file'].invalid && (formValue.controls['file'].dirty || formValue.controls['file'].touched)" class="alert alert-danger">
+              <div *ngIf="formValue.controls['file'].errors?.['required']">
                 This field is required.
               </div>
             </div>

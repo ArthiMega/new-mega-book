@@ -1,9 +1,3 @@
-<!-- <div>
-  <h2>User info</h2>
-  <ul>
-    <li *ngFor="let user of users">{{user|json}}</li>
-  </ul>
- </div> -->
  <div class="input-group">
   <div class="form-outline">
     <input type="search"
@@ -27,6 +21,7 @@
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Books Interested</th>
+          <th scope="col">Books Purchased</th>
         </tr>
       </thead>
       <tbody>
@@ -36,11 +31,19 @@
           <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.email}}</td>
           <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
           <div *ngFor="let userBook of dashBoard">
-            <td class="col-sm-5" *ngIf="user.email === userBook.email">-{{userBook.mybooks.name}}</td>
+            <td  *ngIf="user.email === userBook.email">-{{userBook.mybooks.name}}</td>
           </div>
-        </div>
+          </div>
+          <td>
+          <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
+            <div *ngFor="let cart of cartedBooks">
+              <td *ngIf="user.email === cart.email">-{{cart.cartedBooks.name}}</td>
+            </div>
+           </div>
+          </td>
         </tr>
       </tbody>
     </table>
   </section>
  </div>
+ 

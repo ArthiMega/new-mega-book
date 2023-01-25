@@ -12,6 +12,7 @@ import { CRUDService } from 'src/app/service/crud.service';
 export class EditebooksComponent implements OnInit {
 
   books!:any;
+  searchText:string ="";
   constructor(private crudservice:CRUDService, 
     private router:Router,
     private auth:AuthService) { }
@@ -33,6 +34,10 @@ export class EditebooksComponent implements OnInit {
     if(!this.auth.isAdmin()){
       this.router.navigate(['../home'])
     }
+  }
+  onSearchTextEnterd(searchValue:string){
+    this.searchText = searchValue;
+    // console.log(this.searchText);
   }
   }
   

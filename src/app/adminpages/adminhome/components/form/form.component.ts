@@ -15,6 +15,7 @@ export class FormComponent implements OnInit {
   formValue !: FormGroup;
   formModuleObj :FormModule1 = new FormModule1();
   bookDetails!:any;
+  public obj: any = {};
 
   constructor(private formBuilder:FormBuilder, 
               private crudservice:CRUDService,
@@ -29,21 +30,32 @@ export class FormComponent implements OnInit {
       this.router.navigate(['../home'])
     }
     this.formValue = this.formBuilder.group({
-      coverpage:['',Validators.required],
-      bookname:['',Validators.required],
+      name:['',Validators.required],
       author:['',Validators.required],
       price:['',Validators.required],
       about:['',Validators.required],
+      file:['',Validators.required]
     });
     
   }
+  updatePhoto() {
+    this.obj = { ...this.formValue.value, ...this.obj };
+  }
+  onFileSelect(input:any) {
+    console.log(input.files);
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        console.log('Got here: ', event.target.result);
+        this.obj.img = event.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
   postBookDetails(){
-    this.formModuleObj.img = this.formValue.value.coverpage;
-    this.formModuleObj.name = this.formValue.value.bookname;
-    this.formModuleObj.author = this.formValue.value.author;
-    this.formModuleObj.price = this.formValue.value.price;
-    this.formModuleObj.about = this.formValue.value.about;
-    this.crudservice.postBooks(this.formModuleObj).subscribe(
+    this.obj = { ...this.formValue.value, ...this.obj };
+    console.log(this.obj);
+    this.crudservice.postBooks(this.obj).subscribe(
       response=>{
         console.log(response);
         this.formValue.reset();

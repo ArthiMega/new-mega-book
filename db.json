@@ -1,10 +1,9 @@
 {
-  "admin-data":[
-   {
-    "email":"admin@megabook.com",
-    "password":"Admin@123"
-   }
-
+  "admin-data": [
+    {
+      "email": "admin@megabook.com",
+      "password": "Admin@123"
+    }
   ],
   "user-data": [
     {

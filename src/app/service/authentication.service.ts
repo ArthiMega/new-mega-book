@@ -11,7 +11,6 @@ export class AuthService {
   baseURL = "http://localhost:3000/";
   userId!:any;
   message:string='';
-  admin:boolean = false;
   userEmail!:string;
   adminDetails:any;
   constructor(private router: Router, 
@@ -52,10 +51,10 @@ export class AuthService {
     this.http.get<any>(`${this.baseURL}admin-data`)
     .subscribe(res=>{
       this.adminDetails = res;
-        // return res.email === email && res.password === password
       });
   }
   checkAdmin(email:string,password:string):any{
+    this.adminlogin();
     for(let admin of this.adminDetails){
       if(admin.email === email && admin.password === password ){
         return true;
@@ -112,8 +111,5 @@ buyNow(data:any){
 }
 getCart(){
   return this.http.get(`${this.baseURL}cart`)
-}
-isCarted(){
-  
 }
 }

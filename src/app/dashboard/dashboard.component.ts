@@ -42,14 +42,7 @@ export class DashboardComponent implements OnInit {
       console.log(res);
     })
   }
-  isReaded():any{
-    if(sessionStorage.getItem('bookid') === null){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
+
   readNow(id:any){
     sessionStorage.setItem('bookid',id)
     this.router.navigate(['book'])

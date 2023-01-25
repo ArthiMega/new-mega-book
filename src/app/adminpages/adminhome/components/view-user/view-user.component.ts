@@ -12,6 +12,7 @@ export class ViewUserComponent implements OnInit {
   users!:any;
   dashBoard!:any;
   searchText:string ="";
+  cartedBooks: any;
   constructor(private crudservice:CRUDService,
               private auth:AuthService,
               private route:Router
@@ -32,10 +33,15 @@ viewUserBooks(){
     }
     this.viewUsers();
     this.viewUserBooks();
+    this.getCart();
   }
   onSearchTextEnterd(searchValue:string){
     this.searchText = searchValue;
     // console.log(this.searchText);
   }
-
+  getCart(){
+    this.auth.getCart().subscribe(res=>{
+      this.cartedBooks = res;
+    })
+  }
 }

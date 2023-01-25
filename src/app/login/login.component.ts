@@ -11,6 +11,8 @@ import { AuthService } from '../service/authentication.service';
 export class LoginComponent implements OnInit {
   message!:string;
   login:FormGroup|any;
+  public showPassword:boolean = false;
+  public showPasswordONPress!:boolean;
   constructor(
      private route:Router, 
      private auth:AuthService, 
