@@ -4,3 +4,4 @@ export class RegistrationModel{
     password:string ="";
     confirmpassword:string="";
 }
+

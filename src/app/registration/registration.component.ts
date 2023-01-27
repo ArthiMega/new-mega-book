@@ -5,6 +5,7 @@ import { RegistrationModel } from './registration.model';
 import { Router } from '@angular/router';
 import { NavService } from '../service/nav.service';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -27,8 +28,18 @@ export class RegistrationComponent implements OnInit {
       email:['', Validators.required],
       password:['',Validators.required,Validators.pattern('^((?!.*[s])(?=.*[A-Z])(?=.*d).{8,99})')],
       conformpassword:['',Validators.required]
+    },
+    {
+      validator:this.mustMatch('password','confirmPassword')
     })
   }  
+  mustMatch(password:string, confirmPassword:string):any{
+    if(password !== confirmPassword){
+      return true;
+    }
+    else
+      return false
+  }
   
   postUserDetails(){
     this.registrationModelObj.name = this.formValue.value.name;
