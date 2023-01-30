@@ -6,7 +6,7 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Book Details</h3>
-            <form [formGroup]="formValue" (ngSubmit)="postBookDetails()">
+            <form [formGroup]="formValue" (ngSubmit)="onSubmit()">
               <div class="form-outline mb-4">
                 <label class="form-label" for="bookname">Book mane</label>
                 <input type="text" id="bookname" formControlName="name" class="form-control form-control-lg" />

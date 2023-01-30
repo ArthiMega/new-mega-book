@@ -11,6 +11,7 @@ const routes: Routes = [
         {path:'view-user',component:ViewUserComponent},
         {path:'editbooks',component:EditebooksComponent},
         {path:'add-form', component:FormComponent},
+        {path:'edit/:id',component:FormComponent},
         {path:'',redirectTo:'/adminpages/editbooks',pathMatch:'full'}
      ],
   },

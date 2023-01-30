@@ -28,10 +28,10 @@
               alt={{book.name}}></td>
           <td *ngIf="searchText ==='' || book.name.toLowerCase().includes(searchText)">{{book.name}}</td>
           <td *ngIf="searchText ==='' || book.name.toLowerCase().includes(searchText)">{{book.author}}</td>
-          <td *ngIf="searchText ==='' || book.name.toLowerCase().includes(searchText)">{{book.price}}</td>
+          <td *ngIf="searchText ==='' || book.name.toLowerCase().includes(searchText)">{{book.price|currency:'INR'}}</td>
           <td *ngIf="searchText ==='' || book.name.toLowerCase().includes(searchText)">{{book.about}}</td>
           <td *ngIf="searchText ==='' || book.name.toLowerCase().includes(searchText)"><i class="fa fa-trash fa-2x"
-              aria-hidden="true" (click)="deleteBook(book.id)"></i></td>
+              aria-hidden="true" (click)="deleteBook(book.id)"></i> <i class="fas fa-edit fa-2x" routerLink="../edit/{{book.id}}"></i></td>
         </tr>
       </tbody>
     </table>

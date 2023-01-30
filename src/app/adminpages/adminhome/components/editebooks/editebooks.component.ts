@@ -16,7 +16,18 @@ export class EditebooksComponent implements OnInit {
   constructor(private crudservice: CRUDService,
     private router: Router,
     private auth: AuthService) { }
-  viewBooks() {
+    ngOnInit() {
+      this.viewBooks();
+      if (!this.auth.isAdmin()) {
+        this.router.navigate(['../home'])
+      }
+    }
+
+  onSearchTextEnterd(searchValue: string) {
+    this.searchText = searchValue;
+    // console.log(this.searchText);
+  }
+    viewBooks() {
     this.crudservice.getAllBooks().subscribe(response => {
       this.books = response;
     })
@@ -29,15 +40,8 @@ export class EditebooksComponent implements OnInit {
       })
     }
   }
-  ngOnInit() {
-    this.viewBooks();
-    if (!this.auth.isAdmin()) {
-      this.router.navigate(['../home'])
-    }
-  }
-  onSearchTextEnterd(searchValue: string) {
-    this.searchText = searchValue;
-    // console.log(this.searchText);
+  updateBook(){
+    console.log("updated successfully!");
   }
 }
 
