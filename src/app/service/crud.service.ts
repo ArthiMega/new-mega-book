@@ -8,23 +8,28 @@ import { Observable, throwError } from 'rxjs';
 })
 export class CRUDService {
   private baseURL = 'http://localhost:3000/';
+  
+  //==================================> User <===================================
+
   constructor(private http: HttpClient) {
    }
-   myReadings:string[] = [];
   getUserInfo(){
     return this.http.get(this.baseURL+'user-data');
   }
+
+  postUser(data:any){
+    return this.http.post<any>(this.baseURL+'user-data',data).pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  //=================================> Books <==================================
+
   getAllBooks(){
     return this.http.get(this.baseURL+'books');
   }
   getIndividualBook(bookId:number):any{
     return this.http.get(this.baseURL+'books/'+bookId);
-  }
-   
-  postUser(data:any){
-    return this.http.post<any>(this.baseURL+'user-data',data).pipe(map((res:any)=>{
-      return res;
-    }))
   }
   postBooks(bookdetails:any){
     return this.http.post<any>(this.baseURL+'books',bookdetails).pipe(map((response:any)=>{
@@ -35,8 +40,9 @@ export class CRUDService {
     return this.http.delete(this.baseURL+'books/'+id)
     .pipe(retry(1))
   }
-  updateBook(id:any){
-    return this.http.put(this.baseURL +'books/',id)
+  updateBook(id:any, params:any){
+    return this.http.put(`${this.baseURL}books/${id}`,params);
   }
+  //====================================================================================
 }
  
