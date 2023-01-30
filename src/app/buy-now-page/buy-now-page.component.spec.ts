@@ -1,9 +1,10 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { BuyNowPageComponent } from './buy-now-page.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 describe('BuyNowPageComponent', () => {
   let component: BuyNowPageComponent;
@@ -11,7 +12,9 @@ describe('BuyNowPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuyNowPageComponent ]
+      declarations: [ BuyNowPageComponent ],
+      providers:[HttpClient, HttpHandler,ToastrService,
+      ToastrModule]
     })
     .compileComponents();
   }));

@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { HeaderComponent } from './header.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -11,7 +12,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      providers:[HttpClient,HttpHandler]
     })
     .compileComponents();
   }));

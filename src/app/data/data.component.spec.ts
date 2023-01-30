@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { DataComponent } from './data.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('DataComponent', () => {
   let component: DataComponent;
@@ -11,7 +13,8 @@ describe('DataComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataComponent ]
+      declarations: [ DataComponent ],
+      providers:[HttpClient,HttpHandler, ToastrModule]
     })
     .compileComponents();
   }));

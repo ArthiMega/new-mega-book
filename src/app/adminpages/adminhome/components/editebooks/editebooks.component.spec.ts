@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { EditebooksComponent } from './editebooks.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('EditebooksComponent', () => {
   let component: EditebooksComponent;
@@ -11,7 +12,8 @@ describe('EditebooksComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditebooksComponent ]
+      declarations: [ EditebooksComponent ],
+      providers:[HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

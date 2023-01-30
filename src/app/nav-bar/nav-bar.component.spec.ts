@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { NavBarComponent } from './nav-bar.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('NavBarComponent', () => {
   let component: NavBarComponent;
@@ -11,7 +12,8 @@ describe('NavBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavBarComponent ]
+      declarations: [ NavBarComponent ],
+      providers:[HttpClient, HttpHandler]
     })
     .compileComponents();
   }));

@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { ViewUserComponent } from './view-user.component';
 
@@ -11,7 +10,8 @@ describe('ViewUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewUserComponent ]
+      declarations: [ ViewUserComponent ],
+      providers:[HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
