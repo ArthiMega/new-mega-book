@@ -17,7 +17,6 @@ export class FormComponent implements OnInit {
   formModuleObj: FormModule1 = new FormModule1();
   bookDetails!: any;
   public obj: any = {};
-  isAddMode!:boolean;
   id:any;
   constructor(private formBuilder: FormBuilder,
     private crudservice: CRUDService,
@@ -40,7 +39,7 @@ export class FormComponent implements OnInit {
       about: ['', Validators.required],
       file: ['', Validators.required]
     });
-    if(!this.isAddMode){
+    if(this.id){
       this.crudservice.getIndividualBook(this.id).subscribe((result:any)=>{
         this.formValue.patchValue(result)
       })
@@ -77,7 +76,7 @@ export class FormComponent implements OnInit {
     })
   }
   onSubmit(){
-    if(this.isAddMode){
+    if(!this.id){
       this.postBookDetails();
     }
     else{

@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   userReadings!: any
   homeModuleObj: HomeModule = new HomeModule();
   currentUser: any;
+  count:number=123;
   constructor(public nav: NavService, public crudservice: CRUDService, private auth: AuthService) {
 
   }
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
     return true;
   }
   addDashBoard(item: Object) {
+    this.count += 1;
     this.homeModuleObj.email = this.auth.getEmail();
     this.homeModuleObj.mybooks = item;
     sessionStorage.setItem('bookid', this.homeModuleObj.mybooks.id)

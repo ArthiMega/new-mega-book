@@ -40,9 +40,6 @@ export class EditebooksComponent implements OnInit {
       })
     }
   }
-  updateBook(){
-    console.log("updated successfully!");
-  }
 }
 
 
