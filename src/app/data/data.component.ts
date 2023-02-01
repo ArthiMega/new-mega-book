@@ -8,7 +8,6 @@ import { AuthService } from '../service/authentication.service';
 })
 export class DataComponent implements OnInit {
   individualUser!: any
-
   constructor(private auth: AuthService) { }
   ngOnInit() {
     this.getindividualUser();

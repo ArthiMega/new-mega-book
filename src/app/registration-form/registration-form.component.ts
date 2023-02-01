@@ -4,6 +4,7 @@ import { CRUDService } from '../service/crud.service';
 import { MustMatch } from './must-match';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { RegistrationFormModule } from './registration-form.module';
 
 @Component({
   selector: 'app-registration-form',
@@ -14,6 +15,7 @@ export class RegistrationFormComponent implements OnInit {
 
   registerForm!: FormGroup;
     submitted = false;
+    registrationFormModelObj:RegistrationFormModule = new RegistrationFormModule();
 
     constructor(private formBuilder: FormBuilder,
                 private crudService:CRUDService, 
@@ -37,17 +39,21 @@ export class RegistrationFormComponent implements OnInit {
     get f() { return this.registerForm.controls; }
 
     onSubmit() {
+        this.registrationFormModelObj.firstName = this.registerForm.value.firstName;
+        this.registrationFormModelObj.lastName = this.registerForm.value.lastName;
+        this.registrationFormModelObj.email = this.registerForm.value.email;
+        this.registrationFormModelObj.password = this.registerForm.value.password;
         this.submitted = true;
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
         }
-        this.crudService.postUser(this.registerForm.value).subscribe(
+        this.crudService.postUser(this.registrationFormModelObj).subscribe(
             res=>{
-                this.registerForm.reset();
                 this.toastr.success("Registered successfully!","User");
                 this.router.navigate(['home']);
+                // this.registerForm.reset();
             },
             error=>{
                 this.toastr.error("Somethig went wrong");

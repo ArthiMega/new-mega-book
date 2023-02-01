@@ -20,16 +20,16 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
-          <th *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.id}}</th>
-          <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.name}}</td>
-          <td *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">{{user.email}}</td>
-          <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
+          <th *ngIf="searchText ==='' || user.firstName.toLowerCase().includes(searchText)">{{user.id}}</th>
+          <td *ngIf="searchText ==='' || user.firstName.toLowerCase().includes(searchText)">{{user.firstName}} {{user.lastName}}</td>
+          <td *ngIf="searchText ==='' || user.firstName.toLowerCase().includes(searchText)">{{user.email}}</td>
+          <div *ngIf="searchText ==='' || user.firstName.toLowerCase().includes(searchText)">
             <div *ngFor="let userBook of dashBoard">
               <td *ngIf="user.email === userBook.email">-{{userBook.mybooks.name}}</td>
             </div>
           </div>
           <td>
-            <div *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText)">
+            <div *ngIf="searchText ==='' || user.firstName.toLowerCase().includes(searchText)">
               <div *ngFor="let cart of cartedBooks">
           <td *ngIf="user.email === cart.email">-{{cart.cartedBooks.name}}</td>
 </div>

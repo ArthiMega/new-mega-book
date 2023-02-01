@@ -1,7 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { DataComponent } from '../data/data.component';
 import { AuthService } from '../service/authentication.service';
-import { NavService } from '../service/nav.service';
-
 
 
 @Component({
@@ -10,10 +9,11 @@ import { NavService } from '../service/nav.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  @ViewChild(DataComponent)
+  public data!: DataComponent;
   enteredSearchValue: string = "";
-  constructor(public nav: NavService, public auth: AuthService) {
+  constructor(public auth: AuthService) {
   }
-
   ngOnInit() {
   }
   @Output()
