@@ -1,0 +1,12 @@
+.card{
+    width: 1023px;
+    display: flex;
+    justify-content: center;
+    height: 423px;
+}
+.body{
+    padding-top: 90px;
+    display: flex;
+    padding-bottom: 110px;
+    justify-content: center;
+}

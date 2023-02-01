@@ -29,6 +29,15 @@
       "email": "merlins@gmail.com",
       "password": "123",
       "id": 5
+    },
+    {
+      "firstName": "qwer",
+      "lastName": "qwer",
+      "email": "sdfg@sdf.dfg",
+      "password": "1234567",
+      "confirmPassword": "1234567",
+      "acceptTerms": true,
+      "id": 6
     }
   ],
   "books": [
