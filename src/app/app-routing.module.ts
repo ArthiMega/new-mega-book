@@ -13,22 +13,22 @@ import { BuyNowPageComponent } from './buy-now-page/buy-now-page.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'book', canActivate:[AuthGuard], component:BookComponent},
-  {path:'dashboard', canActivate:[AuthGuard], component:DashboardComponent},
-  {path:'aboutus', component:AboutUsComponent},
-  {path:'contactus', component:ContactUsComponent},
-  {path:'profile',canActivate:[AuthGuard], component: DataComponent},
-  {path:'buy',canActivate:[AuthGuard], component:BuyNowPageComponent},
-  {path:'registration-form',component:RegistrationFormComponent},
-  {path:'adminpages',
+  {path:'home',title:'Mega Book',component:HomeComponent},
+  {path:'login',title:'Login Page',component:LoginComponent},
+  {path:'book',title:'Book Page', canActivate:[AuthGuard], component:BookComponent},
+  {path:'dashboard',title:'DashBoard', canActivate:[AuthGuard], component:DashboardComponent},
+  {path:'aboutus',title:'About Us', component:AboutUsComponent},
+  {path:'contactus',title:'Contact Us', component:ContactUsComponent},
+  {path:'profile',title:'Profile',canActivate:[AuthGuard], component: DataComponent},
+  {path:'buy',title:'Cart Page',canActivate:[AuthGuard], component:BuyNowPageComponent},
+  {path:'registration-form',title:'Registration Page',component:RegistrationFormComponent},
+  {path:'adminpages',title:'Admin Pages',
     canActivate:[AuthGuard], 
     loadChildren:()=>
     import('./adminpages/adminhome/adminhome.module').then((m)=>m.AdminhomeModule),
   },
-  {path: '', redirectTo:'/home', pathMatch:'full'},
-  {path:'**',component: PageNotFoundComponent},
+  {path: '',title:'Home', redirectTo:'/home', pathMatch:'full'},
+  {path:'**',title:'Page Not Found',component: PageNotFoundComponent},
 ];
 
 @NgModule({

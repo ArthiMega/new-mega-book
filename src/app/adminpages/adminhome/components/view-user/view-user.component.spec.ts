@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { ViewUserComponent } from './view-user.component';
 
@@ -11,7 +12,7 @@ describe('ViewUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewUserComponent ],
-      providers:[HttpClient, HttpHandler]
+      providers:[HttpClient, HttpHandler,ToastrService, ToastrModule]
     })
     .compileComponents();
   }));

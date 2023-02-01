@@ -1,3 +1,14 @@
+nav{
+  height: 650 px;  
+  color: #fff;
+  background-image: url("../../assets/images/nav.jpg");  
+  background-size: 100%;  
+  background-size: cover;
+}
+.nav-link{
+  color: black;
+}
+
 ul li {
   display: inline-block;
 }

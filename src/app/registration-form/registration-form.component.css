@@ -1,12 +1,25 @@
-.card{
+.card {
     width: 1023px;
     display: flex;
     justify-content: center;
     height: 423px;
 }
-.body{
+
+.body {
     padding-top: 90px;
     display: flex;
     padding-bottom: 110px;
+    justify-content: center;
+    height: 650 px;
+    color: #fff;
+    background-image: url("../../assets/images/login.jpg");
+    background-size: 100%;
+    background-size: cover;
+}
+.form-label{
+    color: black;
+}
+h5{
+    display: flex;
     justify-content: center;
 }

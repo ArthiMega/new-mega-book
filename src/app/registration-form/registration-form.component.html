@@ -1,6 +1,6 @@
 <div class="body">
 <div class="card m-3">
-  <h5 class="card-header">Registeration Form</h5>
+  <h5 class="card-header" style="color:darkblue;">Registeration Form</h5>
   <div class="card-body">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div class="row">
@@ -34,7 +34,7 @@
                   <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                       <div *ngIf="f['password'].errors?.['required']">Password is required</div>
                       <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</div>
-                      <div *ngIf="f['password'].errors?.['pattern']">Your password must contain at least one uppercase, one lowercase, and one number</div>
+                      <div *ngIf="f['password'].errors?.['pattern']">Your password must contain at least one uppercase, one lowercase, one number and no special symboll</div>
                   </div>
               </div>
               <div class="col mb-3">
@@ -48,7 +48,7 @@
           </div>
           <div class="form-check mb-3">
               <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }" />
-              <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+              <label for="acceptTerms" class="form-check-label" style="color: black;">Accept Terms & Conditions</label>
               <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">Accept Ts & Cs is required</div>
           </div>
           <div class="text-center">

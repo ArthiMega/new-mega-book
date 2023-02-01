@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { DashboardComponent } from './dashboard.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -14,7 +14,7 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
-      providers:[HttpClient,HttpHandler,ToastrService]
+      providers:[HttpClient,HttpHandler,ToastrService,ToastrModule]
     })
     .compileComponents();
   }));

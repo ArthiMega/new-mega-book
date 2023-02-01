@@ -1,11 +1,11 @@
-<section class="vh-100" style="background-color: #d88abd;">
+<section class="background">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
-            <h3 class="mb-5">Sign in</h3>
+            <h3 class="mb-5" style="color: black;">Sign in</h3>
             <form [formGroup]="login" (ngSubmit)="logindata(login)">
               <div class="form-outline mb-4">
                 <input type="email" id="typeEmailX-2" formControlName="email" placeholder="email"
@@ -23,7 +23,7 @@
                   <input name="password" [type]="showPassword ? 'text' : 'password'"
                     class="form-control form-control-lg" id="password-field" placeholder="Password"
                     formControlName="password">
-                  <div>
+                  <div style="color: black;">
                     <i alt="show" class="far fa-eye eye-show" (click)="showPassword = !showPassword"
                       [class.hide]="showPassword"></i>
                     <i alt="hide" class="far fa-eye-slash eye-hide" (click)="showPassword = !showPassword"
@@ -41,7 +41,7 @@
               <div style="color: red;" class="alert alert-denger">
                 {{message}}
               </div>
-              <div>Create New Account !
+              <div><span style="color: black;">Don't have an Account </span>
                 <a routerLink="/registration-form">Register now</a>
               </div>
               <br />

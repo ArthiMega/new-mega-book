@@ -8,28 +8,28 @@
   "user-data": [
     {
       "firstName": "Arthi",
-      "lastName":"Meganathan",
+      "lastName": "Meganathan",
       "email": "art@gmail.com",
       "password": "123",
       "id": 1
     },
     {
       "firstName": "Guna",
-      "lastName":"Meganathan",
+      "lastName": "Meganathan",
       "email": "guna@gmail.com",
       "password": "123",
       "id": 2
     },
     {
       "firstName": "Kumar",
-      "lastName":"Baskaran",
+      "lastName": "Baskaran",
       "email": "kumar@gmail.com",
       "password": "123",
       "id": 3
     },
     {
       "firstName": "Merlins",
-      "lastName":"Arul",
+      "lastName": "Arul",
       "email": "merlins@gmail.com",
       "password": "123",
       "id": 5
@@ -359,6 +359,19 @@
         "id": 4
       },
       "id": 19
+    },
+    {
+      "email": "dhanush@gmail.com",
+      "mybooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 300,
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "file": "C:\\fakepath\\077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "id": 1
+      },
+      "id": 20
     }
   ],
   "cart": [
@@ -445,6 +458,19 @@
         "id": 4
       },
       "id": 7
+    },
+    {
+      "email": "dhanush@gmail.com",
+      "cartedBooks": {
+        "name": "Batman curse of the white knight",
+        "author": "James",
+        "price": 300,
+        "about": "Ancient curses are awoken and timeless secrets are revealed in this explosive sequel to the critically acclaimed blockbuster Batman: White Knight from writer/artist Sean Murphy! The Joker recruits Azrael to help him expose a shocking secret from the Wayne family's legacy-and run Gotham City into the ground!",
+        "file": "C:\\fakepath\\077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "img": "http://localhost:4200/assets/images/077YDd57P7u7kiyUWVZXUrz.fit_lim.size_800x450.v1573095484.jpg",
+        "id": 1
+      },
+      "id": 8
     }
   ]
 }

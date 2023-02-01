@@ -1,0 +1,13 @@
+.sect1 {  
+    height: 650 px;  
+    color: #fff;
+    background-image: url("../../../../../assets/images/back-pO-ZKYso7-transformed.jpeg");  
+    background-size: 100%;  
+    background-size: cover;
+}
+.form-label{
+    color: black;
+}
+h3{
+    color: black;
+}

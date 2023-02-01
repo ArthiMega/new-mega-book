@@ -8,11 +8,11 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 const routes: Routes = [
   {path:'',component:AdminDashboardComponent,
    children:[  
-        {path:'view-user',component:ViewUserComponent},
-        {path:'editbooks',component:EditebooksComponent},
-        {path:'add-form', component:FormComponent},
-        {path:'edit/:id',component:FormComponent},
-        {path:'',redirectTo:'/adminpages/editbooks',pathMatch:'full'}
+        {path:'view-user',title:'User Details',component:ViewUserComponent},
+        {path:'editbooks',title:'Book Details',component:EditebooksComponent},
+        {path:'add-form',title:'Book Addition Form', component:FormComponent},
+        {path:'edit/:id',title:'Bookbs Details',component:FormComponent},
+        {path:'',title:'Books Details',redirectTo:'/adminpages/editbooks',pathMatch:'full'}
      ],
   },
 ];

@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { EditebooksComponent } from './editebooks.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('EditebooksComponent', () => {
   let component: EditebooksComponent;
@@ -13,7 +14,7 @@ describe('EditebooksComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ EditebooksComponent ],
-      providers:[HttpClient, HttpHandler]
+      providers:[HttpClient, HttpHandler,ToastrModule.forRoot()]
     })
     .compileComponents();
   }));
