@@ -14,7 +14,8 @@ describe('BuyNowPageComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BuyNowPageComponent ],
       providers:[HttpClient, HttpHandler,ToastrService,
-      ToastrModule]
+      ToastrModule],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

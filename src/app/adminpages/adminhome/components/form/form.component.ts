@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CRUDService } from 'src/app/service/crud.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormModule1 } from './form.module';

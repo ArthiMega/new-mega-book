@@ -4,6 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormComponent } from './form.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -12,7 +13,19 @@ describe('FormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FormComponent ],
-      providers:[HttpClient,HttpHandler,ToastrService,ToastrModule]
+      providers:[HttpClient,HttpHandler,ToastrService,ToastrModule,{
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: {
+            queryParamMap: {
+              get(): number {
+                return 6;
+              }
+            }
+          }
+        }
+      }],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

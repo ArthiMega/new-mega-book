@@ -12,7 +12,8 @@ describe('ViewUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewUserComponent ],
-      providers:[HttpClient, HttpHandler,ToastrService, ToastrModule]
+      providers:[HttpClient, HttpHandler,ToastrService, ToastrModule],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

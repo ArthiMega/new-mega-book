@@ -8,12 +8,14 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,//mports:[ToastrModule.forRoot()]
+        ToastrModule.forRoot()
       ],
       declarations: [
         AppComponent
       ],
-      providers:[HttpClient,HttpHandler,ToastrModule.forRoot()]
+      providers:[HttpClient,HttpHandler],
+      
     }).compileComponents();
   });
 

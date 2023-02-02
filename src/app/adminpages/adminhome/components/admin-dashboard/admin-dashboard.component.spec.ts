@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { AdminDashboardComponent } from './admin-dashboard.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
@@ -13,7 +12,8 @@ describe('AdminDashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AdminDashboardComponent ],
-      providers:[HttpClient,HttpHandler]
+      providers:[HttpClient,HttpHandler, {provide:ToastrService, useClasss:ToastrService}],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

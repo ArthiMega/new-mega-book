@@ -14,7 +14,8 @@ describe('EditebooksComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ EditebooksComponent ],
-      providers:[HttpClient, HttpHandler,ToastrModule.forRoot()]
+      providers:[HttpClient, HttpHandler],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

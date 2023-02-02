@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { NavBarComponent } from './nav-bar.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('NavBarComponent', () => {
   let component: NavBarComponent;
@@ -13,7 +14,8 @@ describe('NavBarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NavBarComponent ],
-      providers:[HttpClient, HttpHandler]
+      providers:[HttpClient, HttpHandler],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

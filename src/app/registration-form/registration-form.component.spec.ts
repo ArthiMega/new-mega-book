@@ -12,7 +12,8 @@ describe('RegistrationFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RegistrationFormComponent ],
-      providers:[HttpClient, HttpHandler,ToastrModule,ToastrService]
+      providers:[HttpClient, HttpHandler,ToastrModule,ToastrService],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

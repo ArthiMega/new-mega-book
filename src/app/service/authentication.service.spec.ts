@@ -8,7 +8,8 @@ import { AuthService } from './authentication.service';
 describe('Service: Authentication', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthService, HttpClient, HttpHandler,ToastrModule,ToastrService]
+      providers: [AuthService, HttpClient, HttpHandler,ToastrModule],
+      imports:[ToastrModule.forRoot()]
     });
   });
 

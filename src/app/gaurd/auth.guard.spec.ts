@@ -1,5 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AuthGuard } from './auth.guard';
 
@@ -8,7 +9,8 @@ describe('AuthGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers:[HttpClient, HttpHandler]
+      providers:[HttpClient, HttpHandler],
+      imports:[ToastrModule.forRoot()]
     });
     guard = TestBed.inject(AuthGuard);
   });

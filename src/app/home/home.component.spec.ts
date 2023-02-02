@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { HomeComponent } from './home.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,7 +14,8 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      providers:[HttpClient, HttpHandler]
+      providers:[HttpClient, HttpHandler],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

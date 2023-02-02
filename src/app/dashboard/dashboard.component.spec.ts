@@ -14,7 +14,8 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
-      providers:[HttpClient,HttpHandler,ToastrService,ToastrModule]
+      providers:[HttpClient,HttpHandler,ToastrService,ToastrModule],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

@@ -39,7 +39,6 @@ export class DashboardComponent implements OnInit {
   getPurchasedBookDetails() {
     this.auth.getCart().subscribe(res => {
       this.cartedBooks = res;
-      console.log(res);
     })
   }
 
