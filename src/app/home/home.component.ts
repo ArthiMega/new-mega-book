@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/authentication.service';
 import { CRUDService } from '../service/crud.service';
 import { NavService } from '../service/nav.service';
@@ -16,7 +17,10 @@ export class HomeComponent implements OnInit {
   homeModuleObj: HomeModule = new HomeModule();
   currentUser: any;
   count:number=123;
-  constructor(public nav: NavService, public crudservice: CRUDService, private auth: AuthService) {
+  constructor(public nav: NavService, 
+    public crudservice: CRUDService, 
+    private auth: AuthService,
+    private toastr: ToastrService) {
 
   }
 
@@ -27,12 +31,18 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.crudservice.getAllBooks().subscribe(data => {
       this.books = data;
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     });
     this.getDashboardBooks();
   }
   getDashboardBooks() {
     this.auth.getDashboard().subscribe(dashBoard => {
       this.userReadings = dashBoard;
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
   checkDuplicates(book: Object): any {
@@ -55,7 +65,9 @@ export class HomeComponent implements OnInit {
       this.auth.postDashBoard(this.homeModuleObj)
         .subscribe(
           res => {
-
+          },
+          error=>{
+            this.toastr.error('Something went wrong!');
           }
         );
     }

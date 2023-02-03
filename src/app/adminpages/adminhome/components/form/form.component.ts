@@ -42,6 +42,9 @@ export class FormComponent implements OnInit {
     if(this.id){
       this.crudservice.getIndividualBook(this.id).subscribe((result:any)=>{
         this.formValue.patchValue(result)
+      },
+      (error:any)=>{
+        this.toastr.error('Simething went wrong!');
       })
     }
   }
@@ -73,6 +76,9 @@ export class FormComponent implements OnInit {
     this.crudservice.updateBook(this.id,this.obj).subscribe(()=>{
       this.toastr.success("Book details updated successfully!");
       this.router.navigate(['/adminpages/editbooks'])
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
   onSubmit(){

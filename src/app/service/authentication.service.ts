@@ -1,4 +1,4 @@
-import { Observable, of, throwError, map } from 'rxjs';
+import { map } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -51,6 +51,9 @@ export class AuthService {
     this.http.get<any>(`${this.baseURL}admin-data`)
       .subscribe(res => {
         this.adminDetails = res;
+      },
+      error=>{
+        this.toastr.error('Something went wrong!');
       });
   }
   checkAdmin(email: string, password: string): any {

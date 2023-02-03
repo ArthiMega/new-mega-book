@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/authentication.service';
 import { CRUDService } from '../service/crud.service';
 import { NavService } from '../service/nav.service';
@@ -18,7 +19,8 @@ export class DashboardComponent implements OnInit {
   cartedBooks: any;
   constructor(private auth: AuthService,
     private crudservice: CRUDService,
-    private router: Router) {
+    private router: Router,
+    private toastr:ToastrService) {
   }
 
   ngOnInit(): void {
@@ -29,16 +31,25 @@ export class DashboardComponent implements OnInit {
   getUser() {
     this.auth.getDashboard().subscribe(data => {
       this.users = data;
+    },
+    erroe=>{
+      this.toastr.error('Somthing went wrong!');
     })
   }
   getBooks() {
     this.crudservice.getAllBooks().subscribe(res => {
       this.books = res;
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
   getPurchasedBookDetails() {
     this.auth.getCart().subscribe(res => {
       this.cartedBooks = res;
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
 

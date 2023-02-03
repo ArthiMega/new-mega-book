@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/authentication.service';
 import { CRUDService } from '../service/crud.service';
 import { BuyNowModule } from './buy-now.module';
@@ -17,7 +18,8 @@ export class BuyNowPageComponent implements OnInit {
   currentUser: any;
   constructor(private crudservice: CRUDService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -27,11 +29,17 @@ export class BuyNowPageComponent implements OnInit {
   getCartDetails() {
     this.auth.getCart().subscribe(cart => {
       this.cardDetails = cart;
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
   getIndividualBook() {
     this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((res: any) => {
       this.IndividualBook = res;
+    },
+    (error:any)=>{
+      this.toastr.error('!something went wrong!');
     });
   }
   checkDuplicates(cart: Object): any {
@@ -52,6 +60,9 @@ export class BuyNowPageComponent implements OnInit {
       this.auth.buyNow(this.buyNowModuleObj).subscribe(res => {
         console.log(res);
         this.IndividualBook = false;
+      },
+      error=>{
+        this.toastr.error('Something went wrong!');
       })
     }
     this.router.navigate(['../book']);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/authentication.service';
 import { CRUDService } from '../service/crud.service';
 
@@ -17,7 +18,8 @@ export class BookComponent implements OnInit {
   cartItems !: any;
   constructor(private crudservice: CRUDService,
     private router: Router,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private toastr: ToastrService) { }
   ngOnInit() {
     console.log(this.id)
     this.getBook();
@@ -26,7 +28,11 @@ export class BookComponent implements OnInit {
   getBook() {
     this.crudservice.getIndividualBook(Number(this.bookId)).subscribe((response: any) => {
       this.book = response;
-    })
+    },
+    (error:any)=>{
+      this.toastr.success('Something went wrong!');
+    }
+    )
   }
   goToTop() {
     window.scroll({
@@ -38,6 +44,9 @@ export class BookComponent implements OnInit {
   getAllCart() {
     this.auth.getCart().subscribe(data => {
       this.cartItems = data;
+    },
+    error=>{
+      this.toastr.error('Somthing went wrong!');
     });
   }
   isInCart(id: any): any {

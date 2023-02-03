@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CRUDService } from '../service/crud.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { CRUDService } from '../service/crud.service';
 })
 export class ListingComponent implements OnInit {
   userData!: any;
-  constructor(private crudservice: CRUDService) { }
+  constructor(private crudservice: CRUDService,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -16,6 +18,10 @@ export class ListingComponent implements OnInit {
     this.crudservice.getUserInfo()
       .subscribe(res => {
         this.userData = res;
-      })
+      },
+      error=>{
+        this.toastr.error('Something went wrong!');
+      }
+      )
   }
 }

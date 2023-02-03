@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/authentication.service';
 import { CRUDService } from 'src/app/service/crud.service';
 
@@ -15,16 +16,22 @@ export class ViewUserComponent implements OnInit {
   cartedBooks: any;
   constructor(private crudservice: CRUDService,
     private auth: AuthService,
-    private route: Router
+    private route: Router,
+    private toastr:ToastrService
   ) { }
   viewUsers() {
     this.crudservice.getUserInfo().subscribe(response => {
       this.users = response;
+    },
+    error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
   viewUserBooks() {
     this.auth.getDashboard().subscribe(data => {
       this.dashBoard = data;
+    },error=>{
+      this.toastr.error('Something went wrong!');
     })
   }
   ngOnInit() {
@@ -42,6 +49,9 @@ export class ViewUserComponent implements OnInit {
   getCart() {
     this.auth.getCart().subscribe(res => {
       this.cartedBooks = res;
+    },
+    erro=>{
+      this.toastr.error('Something went wrong!')
     })
   }
 }

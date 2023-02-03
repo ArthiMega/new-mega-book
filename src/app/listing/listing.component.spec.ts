@@ -1,10 +1,9 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { ListingComponent } from './listing.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('ListingComponent', () => {
   let component: ListingComponent;
@@ -13,7 +12,8 @@ describe('ListingComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListingComponent ],
-      providers:[HttpClient,HttpHandler]
+      providers:[HttpClient,HttpHandler],
+      imports:[ToastrModule.forRoot()]
     })
     .compileComponents();
   }));

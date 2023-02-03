@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/authentication.service';
 import { CRUDService } from 'src/app/service/crud.service';
 
@@ -15,7 +16,8 @@ export class EditebooksComponent implements OnInit {
   searchText: string = "";
   constructor(private crudservice: CRUDService,
     private router: Router,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private toastr: ToastrService) { }
     ngOnInit() {
       this.viewBooks();
       if (!this.auth.isAdmin()) {
@@ -30,6 +32,9 @@ export class EditebooksComponent implements OnInit {
     viewBooks() {
     this.crudservice.getAllBooks().subscribe(response => {
       this.books = response;
+    },
+    error=>{
+      this.toastr.error("Somethinng went wrong!");
     })
   }
   deleteBook(id: any) {
@@ -37,6 +42,9 @@ export class EditebooksComponent implements OnInit {
       this.crudservice.deleteBook(id).subscribe(data => {
         window.location.reload();
         this.router.navigate(['adminpages/editbooks'])
+      },
+      error=>{
+        this.toastr.error('Somthing went wrong!');
       })
     }
   }
