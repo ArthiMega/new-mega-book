@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,10 @@ export class AuthService {
   message: string = '';
   userEmail!: string;
   adminDetails: any;
+  sign!:any;
+  secret!:string;
+  access!:any;
+  decoded!:any;
   constructor(private router: Router,
     private http: HttpClient,
     private toastr: ToastrService) { }
@@ -42,7 +47,9 @@ export class AuthService {
   }
 
   isAdmin() {
-    return this.getToken() == 'zyxwvutsrqponmlkjihgfedcba';
+    this.access = this.getToken();
+    this.decoded = jwt_decode(this.access);
+    return this.decoded.access == 'admin';
   }
   getUser() {
     return this.http.get(this.baseURL + 'user-data');
@@ -67,9 +74,15 @@ export class AuthService {
   }
   login(email: string, password: string) {
     if (this.checkAdmin(email, password)) {
-      this.setToken('zyxwvutsrqponmlkjihgfedcba');
+      this.sign = require('jwt-encode');
+      this.secret = 'Admin@123asdfghjkl';
+      let data = {
+        access:'admin',
+        email:email
+      }
+      let jwt = this.sign(data,this.secret);
+      this.setToken(jwt);
       this.toastr.success("Logged in successfully!");
-      this.isAdmin();
       this.router.navigate(['adminpages']);
     }
     else {
@@ -81,7 +94,14 @@ export class AuthService {
           });
           if (user) {
             this.setEmail(email);
-            this.setToken('abcdefghijklmnopqrstuvwxyz');
+           let sign = require('jwt-encode');
+           let secret = 'Useri@123asdfghjkl';
+           let data = {
+              access : 'user',
+              email:email
+            };
+            let jwt = sign(data,secret);
+            this.setToken(jwt);
             this.toastr.success("Logged in successfully!", "User", { "positionClass": "toast-top-right" });
             this.router.navigate(['home']);
           }

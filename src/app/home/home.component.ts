@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
       this.toastr.error('Something went wrong!');
     });
     this.getDashboardBooks();
+    this.nav.toggle();
   }
   getDashboardBooks() {
     this.auth.getDashboard().subscribe(dashBoard => {
@@ -55,7 +56,6 @@ export class HomeComponent implements OnInit {
     return true;
   }
   addDashBoard(item: Object) {
-    this.count += 1;
     this.homeModuleObj.email = this.auth.getEmail();
     this.homeModuleObj.mybooks = item;
     sessionStorage.setItem('bookid', this.homeModuleObj.mybooks.id)
