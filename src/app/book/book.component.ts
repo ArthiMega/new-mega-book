@@ -11,17 +11,15 @@ import { CRUDService } from '../service/crud.service';
 })
 export class BookComponent implements OnInit {
   book!: any
-  bookId = sessionStorage.getItem('bookid')
+  bookId = localStorage.getItem('bookid')
   anchor: string = "Read more";
   expand: boolean = false;
-  id = sessionStorage.getItem('bookid');
   cartItems !: any;
   constructor(private crudservice: CRUDService,
     private router: Router,
     private auth: AuthService,
     private toastr: ToastrService) { }
   ngOnInit() {
-    console.log(this.id)
     this.getBook();
     this.getAllCart();
   }
@@ -52,9 +50,6 @@ export class BookComponent implements OnInit {
   isInCart(id: any): any {
     this.getAllCart();
     for (let item of this.cartItems) {
-      console.log(item.cartedBooks.id);
-      console.log(id);
-      console.log(item.cartedBooks.id == id)
       if (item.email === sessionStorage.getItem('email') && item.cartedBooks.id == id) {
         return true;
       }

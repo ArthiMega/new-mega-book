@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/authentication.service';
 import { CRUDService } from 'src/app/service/crud.service';
+import { NavService } from 'src/app/service/nav.service';
 
 
 @Component({
@@ -17,12 +18,14 @@ export class EditebooksComponent implements OnInit {
   constructor(private crudservice: CRUDService,
     private router: Router,
     private auth: AuthService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private nav :NavService) { }
     ngOnInit() {
       this.viewBooks();
       if (!this.auth.isAdmin()) {
         this.router.navigate(['../home'])
       }
+      this.nav.hide()
     }
 
   onSearchTextEnterd(searchValue: string) {

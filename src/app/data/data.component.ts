@@ -22,8 +22,6 @@ export class DataComponent implements OnInit {
       this.toastr.error('Something went wrong!');
     })
   }
-
-
 }
 
 

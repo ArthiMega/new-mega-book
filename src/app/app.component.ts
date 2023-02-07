@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from './service/authentication.service';
+import { NavService } from './service/nav.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +9,9 @@ import { AuthService } from './service/authentication.service';
 })
 export class AppComponent {
   title = 'mega-book';
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, public nav: NavService) { }
   isAdmn() {
     return this.auth.isAdmin()
   }
+  
 }

@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormModule1 } from './form.module';
 import { AuthService } from 'src/app/service/authentication.service';
 import { ToastrService } from 'ngx-toastr';
+import { NavService } from 'src/app/service/nav.service';
 
 @Component({
   selector: 'app-form',
@@ -23,7 +24,8 @@ export class FormComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private toastr: ToastrService,
-    private route:ActivatedRoute) {
+    private route:ActivatedRoute,
+    private nav:NavService) {
 
   }
 
@@ -32,6 +34,7 @@ export class FormComponent implements OnInit {
     if (!this.auth.isAdmin()) {
       this.router.navigate(['../home'])
     }
+    this.nav.hide();
     this.formValue = this.formBuilder.group({
       name: ['', Validators.required],
       author: ['', Validators.required],

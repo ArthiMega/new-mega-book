@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import jwt_decode from "jwt-decode";
+import { NavService } from './nav.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,8 @@ export class AuthService {
   decoded!:any;
   constructor(private router: Router,
     private http: HttpClient,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private nav: NavService) { }
 
   setToken(token: string): void {
     sessionStorage.setItem('token', token);
@@ -43,13 +45,18 @@ export class AuthService {
   logout() {
     sessionStorage.removeItem('bookid')
     sessionStorage.removeItem('token');
+    this.nav.show();
     this.router.navigate(['login']);
+    
   }
 
   isAdmin() {
     this.access = this.getToken();
     this.decoded = jwt_decode(this.access);
-    return this.decoded.access == 'admin';
+    if(this.decoded.access == 'admin'){
+      return true;
+    }
+    return false;
   }
   getUser() {
     return this.http.get(this.baseURL + 'user-data');

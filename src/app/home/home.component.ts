@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   addDashBoard(item: Object) {
     this.homeModuleObj.email = this.auth.getEmail();
     this.homeModuleObj.mybooks = item;
-    sessionStorage.setItem('bookid', this.homeModuleObj.mybooks.id)
+    localStorage.setItem('bookid', this.homeModuleObj.mybooks.id)
     this.currentUser = this.auth.getEmail();
     this.getDashboardBooks();
     if (this.checkDuplicates(this.homeModuleObj)) {

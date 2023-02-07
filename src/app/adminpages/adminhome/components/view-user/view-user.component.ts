@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/authentication.service';
 import { CRUDService } from 'src/app/service/crud.service';
+import { NavService } from 'src/app/service/nav.service';
 
 @Component({
   selector: 'app-view-user',
@@ -17,7 +18,8 @@ export class ViewUserComponent implements OnInit {
   constructor(private crudservice: CRUDService,
     private auth: AuthService,
     private route: Router,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+    private nav: NavService
   ) { }
   viewUsers() {
     this.crudservice.getUserInfo().subscribe(response => {
@@ -41,6 +43,7 @@ export class ViewUserComponent implements OnInit {
     this.viewUsers();
     this.viewUserBooks();
     this.getCart();
+    this.nav.hide();
   }
   onSearchTextEnterd(searchValue: string) {
     this.searchText = searchValue;
