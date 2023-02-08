@@ -13,9 +13,6 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private auth:AuthService,private router:Router, private nav :NavService) { }
 
   ngOnInit() {
-    if(!this.auth.isAdmin()){
-      this.router.navigate(['../home']);
-    }
     this.nav.hide();
   }
 

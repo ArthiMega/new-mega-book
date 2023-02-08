@@ -372,6 +372,18 @@
         "id": 1
       },
       "id": 20
+    },
+    {
+      "email": "merlins@gmail.com",
+      "mybooks": {
+        "name": "The Immortal Hulk",
+        "author": "Jack danial",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/hulk.jpg",
+        "about": "The Immortal Hulk, introduced as Devil Hulk, is a fictional alternate-personality character appearing in American comic books published by Marvel Comics.",
+        "id": 5
+      },
+      "id": 21
     }
   ],
   "cart": [
@@ -471,6 +483,30 @@
         "id": 1
       },
       "id": 8
+    },
+    {
+      "email": "art@gmail.com",
+      "cartedBooks": {
+        "name": "Peppa Pig",
+        "author": "Arthi",
+        "price": 1050,
+        "img": "http://localhost:4200/assets/images/Peppa_Pig.png",
+        "about": "Peppa, an outgoing preschool pig, participates in many energetic activities. She learns something new every day and has a lot of fun with her family and friends.",
+        "id": 8
+      },
+      "id": 9
+    },
+    {
+      "email": "merlins@gmail.com",
+      "cartedBooks": {
+        "name": "The Immortal Hulk",
+        "author": "Jack danial",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/hulk.jpg",
+        "about": "The Immortal Hulk, introduced as Devil Hulk, is a fictional alternate-personality character appearing in American comic books published by Marvel Comics.",
+        "id": 5
+      },
+      "id": 10
     }
   ]
 }

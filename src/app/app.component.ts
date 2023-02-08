@@ -8,7 +8,7 @@ import { NavService } from './service/nav.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'mega-book';
+  title = 'Mega-Book';
   constructor(private auth: AuthService, public nav: NavService) { }
   isAdmn() {
     return this.auth.isAdmin()

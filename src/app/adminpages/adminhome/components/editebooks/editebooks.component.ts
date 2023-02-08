@@ -22,9 +22,6 @@ export class EditebooksComponent implements OnInit {
     private nav :NavService) { }
     ngOnInit() {
       this.viewBooks();
-      if (!this.auth.isAdmin()) {
-        this.router.navigate(['../home'])
-      }
       this.nav.hide()
     }
 

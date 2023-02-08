@@ -13,11 +13,10 @@ export class AuthService {
   baseURL = "http://localhost:3000/";
   userId!: any;
   message: string = '';
-  userEmail!: string;
   adminDetails: any;
   sign!:any;
   secret!:string;
-  access!:any;
+  access?:any;
   decoded!:any;
   constructor(private router: Router,
     private http: HttpClient,
@@ -52,7 +51,10 @@ export class AuthService {
 
   isAdmin() {
     this.access = this.getToken();
+    if(this.access)
+    {
     this.decoded = jwt_decode(this.access);
+    }
     if(this.decoded.access == 'admin'){
       return true;
     }

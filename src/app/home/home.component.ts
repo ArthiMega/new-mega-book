@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
       this.toastr.error('Something went wrong!');
     });
     this.getDashboardBooks();
-    this.nav.toggle();
   }
   getDashboardBooks() {
     this.auth.getDashboard().subscribe(dashBoard => {

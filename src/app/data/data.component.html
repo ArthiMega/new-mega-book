@@ -1,7 +1,9 @@
 <div>
     <i class="	fas fa-user-circle fa-10x" aria-hidden="true"></i>
 </div>
+<div *ngIf="individualUser">
 <h5 class="mb-2"><strong> Hi {{individualUser.firstName}}</strong></h5>
 <p class="text-muted"><span class="badge bg-primary">PRO</span></p>
 <p>{{individualUser.firstName}} {{individualUser.lastName}}</p>
 <p>{{individualUser.email}}</p>
+</div>

@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,7 +13,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
       providers:[HttpClient,HttpHandler, {provide:ToastrService, useClass:ToastrService}],
-      imports:[ToastrModule.forRoot()]
+      imports:[ToastrModule.forRoot(), ReactiveFormsModule]
     })
     .compileComponents();
   }));

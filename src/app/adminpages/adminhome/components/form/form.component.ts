@@ -18,7 +18,7 @@ export class FormComponent implements OnInit {
   formModuleObj: FormModule1 = new FormModule1();
   bookDetails!: any;
   public obj: any = {};
-  id:any;
+  id1:any= 1;
   constructor(private formBuilder: FormBuilder,
     private crudservice: CRUDService,
     private router: Router,
@@ -30,10 +30,9 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
-    if (!this.auth.isAdmin()) {
-      this.router.navigate(['../home'])
-    }
+    if(this.route.snapshot){
+    this.id1 = this.route.snapshot.params['id'];
+  }
     this.nav.hide();
     this.formValue = this.formBuilder.group({
       name: ['', Validators.required],
@@ -42,8 +41,8 @@ export class FormComponent implements OnInit {
       about: ['', Validators.required],
       file: ['', Validators.required]
     });
-    if(this.id){
-      this.crudservice.getIndividualBook(this.id).subscribe((result:any)=>{
+    if(this.id1){
+      this.crudservice.getIndividualBook(this.id1).subscribe((result:any)=>{
         this.formValue.patchValue(result)
       },
       (error:any)=>{
@@ -53,7 +52,6 @@ export class FormComponent implements OnInit {
   }
 
   onFileSelect(input: any) {
-    console.log(input.files);
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = (event: any) => {
@@ -76,7 +74,7 @@ export class FormComponent implements OnInit {
   }
   updateBook(){
     this.obj = { ...this.formValue.value, ...this.obj };
-    this.crudservice.updateBook(this.id,this.obj).subscribe(()=>{
+    this.crudservice.updateBook(this.id1,this.obj).subscribe(()=>{
       this.toastr.success("Book details updated successfully!");
       this.router.navigate(['/adminpages/editbooks'])
     },
@@ -85,7 +83,7 @@ export class FormComponent implements OnInit {
     })
   }
   onSubmit(){
-    if(!this.id){
+    if(!this.id1){
       this.postBookDetails();
     }
     else{

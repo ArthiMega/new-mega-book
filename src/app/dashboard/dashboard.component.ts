@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
   }
 
   readNow(id: any) {
-    sessionStorage.setItem('bookid', id)
+    localStorage.setItem('bookid', id)
     this.router.navigate(['book'])
   }
 }

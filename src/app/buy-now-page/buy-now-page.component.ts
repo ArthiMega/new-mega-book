@@ -12,7 +12,7 @@ import { BuyNowModule } from './buy-now.module';
 })
 export class BuyNowPageComponent implements OnInit {
   IndividualBook!: any
-  bookId = sessionStorage.getItem('bookid');
+  bookId = localStorage.getItem('bookid');
   cardDetails: any;
   buyNowModuleObj: BuyNowModule = new BuyNowModule();
   currentUser: any;

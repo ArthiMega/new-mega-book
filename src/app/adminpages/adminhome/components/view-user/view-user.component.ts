@@ -37,9 +37,6 @@ export class ViewUserComponent implements OnInit {
     })
   }
   ngOnInit() {
-    if (!this.auth.isAdmin()) {
-      this.route.navigate(['../home'])
-    }
     this.viewUsers();
     this.viewUserBooks();
     this.getCart();
