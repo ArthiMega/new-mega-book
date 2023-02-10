@@ -14,10 +14,10 @@ export class AuthService {
   userId!: any;
   message: string = '';
   adminDetails: any;
-  sign!:any;
-  secret!:string;
-  access?:any;
-  decoded!:any;
+  sign!: any;
+  secret!: string;
+  access?: any;
+  decoded!: any;
   constructor(private router: Router,
     private http: HttpClient,
     private toastr: ToastrService,
@@ -46,16 +46,15 @@ export class AuthService {
     sessionStorage.removeItem('token');
     this.nav.show();
     this.router.navigate(['login']);
-    
+
   }
 
   isAdmin() {
     this.access = this.getToken();
-    if(this.access)
-    {
-    this.decoded = jwt_decode(this.access);
+    if (this.access) {
+      this.decoded = jwt_decode(this.access);
     }
-    if(this.decoded.access == 'admin'){
+    if (this.decoded.access == 'admin') {
       return true;
     }
     return false;
@@ -68,9 +67,9 @@ export class AuthService {
       .subscribe(res => {
         this.adminDetails = res;
       },
-      error=>{
-        this.toastr.error('Something went wrong!');
-      });
+        error => {
+          this.toastr.error('Something went wrong!');
+        });
   }
   checkAdmin(email: string, password: string): any {
     this.adminlogin();
@@ -86,10 +85,10 @@ export class AuthService {
       this.sign = require('jwt-encode');
       this.secret = 'Admin@123asdfghjkl';
       let data = {
-        access:'admin',
-        email:email
+        access: 'admin',
+        email: email
       }
-      let jwt = this.sign(data,this.secret);
+      let jwt = this.sign(data, this.secret);
       this.setToken(jwt);
       this.toastr.success("Logged in successfully!");
       this.router.navigate(['adminpages']);
@@ -103,15 +102,15 @@ export class AuthService {
           });
           if (user) {
             this.setEmail(email);
-           let sign = require('jwt-encode');
-           let secret = 'Useri@123asdfghjkl';
-           let data = {
-              access : 'user',
-              email:email
+            let sign = require('jwt-encode');
+            let secret = 'Useri@123asdfghjkl';
+            let data = {
+              access: 'user',
+              email: email
             };
-            let jwt = sign(data,secret);
+            let jwt = sign(data, secret);
             this.setToken(jwt);
-            this.toastr.success("Logged in successfully!", "User", { "positionClass": "toast-top-right" });
+            this.toastr.success("Logged in successfully!", "User");//{ "positionClass": "toast-top-right" })
             this.router.navigate(['home']);
           }
           else {

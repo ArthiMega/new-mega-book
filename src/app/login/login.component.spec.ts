@@ -27,4 +27,8 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('testing HTML element',()=>{
+    const data = fixture.nativeElement;
+    expect(data.querySelector(".mb-5").textContent).toContain("Sign in");
+  })
 });

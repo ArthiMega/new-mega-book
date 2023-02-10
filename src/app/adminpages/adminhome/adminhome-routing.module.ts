@@ -6,7 +6,7 @@ import { FormComponent } from './components/form/form.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { RoleGaurdGuard } from '../role-gaurd.guard';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path:'',component:AdminDashboardComponent,
    children:[  
         {path:'view-user',title:'User Details',canActivate:[RoleGaurdGuard],component:ViewUserComponent},
