@@ -6,7 +6,7 @@ import { map, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CRUDService {
-  private baseURL = 'http://localhost:3000/';
+  public baseURL = 'http://localhost:3000/';
 
   //==================================> User <===================================
 

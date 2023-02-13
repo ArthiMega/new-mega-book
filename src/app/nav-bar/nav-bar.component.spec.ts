@@ -6,6 +6,8 @@ import { DebugElement } from '@angular/core';
 import { NavBarComponent } from './nav-bar.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoginComponent } from '../login/login.component';
 
 describe('NavBarComponent', () => {
   let component: NavBarComponent;
@@ -15,7 +17,16 @@ describe('NavBarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ NavBarComponent ],
       providers:[HttpClient, HttpHandler],
-      imports:[ToastrModule.forRoot()]
+      imports:[
+        ToastrModule.forRoot(),
+        RouterTestingModule.withRoutes([
+          {
+            path:'login',
+            component:LoginComponent
+          }
+        ]),
+        
+      ]
     })
     .compileComponents();
   }));
