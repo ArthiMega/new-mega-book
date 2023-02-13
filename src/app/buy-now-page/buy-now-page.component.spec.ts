@@ -41,6 +41,9 @@ describe('BuyNowPageComponent', () => {
     expect(component).toBeTruthy();
   });
   it('router navigation to book page',()=>{
-    component.
+    component.navigateToHome();
+    const spy = router.navigate as jasmine.Spy;
+    const navArgs =spy.calls.first().args[0];
+    expect(navArgs[0]).toBe('../book')
   })
 });

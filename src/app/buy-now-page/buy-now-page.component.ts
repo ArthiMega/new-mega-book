@@ -51,6 +51,9 @@ export class BuyNowPageComponent implements OnInit {
     }
     return true;
   }
+  navigateToHome(){
+    this.router.navigate(['../book']);
+  }
   buyNow(item: Object) {
     this.currentUser = this.auth.getEmail();
     this.buyNowModuleObj.email = this.currentUser;
@@ -65,6 +68,6 @@ export class BuyNowPageComponent implements OnInit {
         this.toastr.error('Something went wrong!');
       })
     }
-    this.router.navigate(['../book']);
+    this.navigateToHome();
   }
 }
