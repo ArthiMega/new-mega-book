@@ -12,6 +12,7 @@ describe('BuyNowPageComponent', () => {
   let component: BuyNowPageComponent;
   let fixture: ComponentFixture<BuyNowPageComponent>;
   let router : Router;
+  let obj = {};
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -45,5 +46,11 @@ describe('BuyNowPageComponent', () => {
     const spy = router.navigate as jasmine.Spy;
     const navArgs =spy.calls.first().args[0];
     expect(navArgs[0]).toBe('../book')
+  })
+  it('call check duplicates ',()=>{
+    component.checkDuplicates(obj);
+  })
+  it('should call buy now() ',()=>{
+    component.buyNow(obj);
   })
 });

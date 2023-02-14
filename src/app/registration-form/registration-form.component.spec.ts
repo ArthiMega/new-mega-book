@@ -27,4 +27,13 @@ describe('RegistrationFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('call f()',()=>{
+    component.f
+  })
+  it('should call onsubmit',()=>{
+    component.onSubmit();
+  });
+  it('onReset()',()=>{
+    component.onReset();
+  })
 });

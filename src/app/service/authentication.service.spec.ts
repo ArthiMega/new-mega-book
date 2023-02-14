@@ -11,6 +11,8 @@ describe('Service: Authentication', () => {
   let toastrService: ToastrService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
+  let token = 'abcdefghijklmnopqrstuvwxyz'
+  let email = 'arthi@gmail.com'
 
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let authService: AuthService;
@@ -108,4 +110,10 @@ describe('Service: Authentication', () => {
     expect(req.request.method).toEqual('POST');
     expect(req.request.body).toEqual(MYREADINGS);
   });
+  it('should call settoken()',()=>{
+    authService.setToken(token);
+  })
+  it('should call setEmail()',()=>{
+    authService.setEmail(email);
+  })
 })
