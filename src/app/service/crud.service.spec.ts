@@ -85,7 +85,7 @@ let id = 1
     const req = httpTestingController.expectOne({
       method:'POST',
       url:`${baseURL}/books`,
-    })
+    });
   })
   it('should post user',()=>{
     service.postUser(USER).subscribe((data:any)=>{
@@ -94,6 +94,8 @@ let id = 1
     const req = httpTestingController.expectOne({
       method:'POST',
       url:`${baseURL}/user-data`,
-    })
+    });
+    const expectedResponse = new HttpResponse({ status: 304, statusText: 'Created', body: USER });
+    req.event(expectedResponse);
   })
 });
