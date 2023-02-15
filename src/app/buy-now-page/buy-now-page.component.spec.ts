@@ -5,6 +5,8 @@ import { BuyNowPageComponent } from './buy-now-page.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/authentication.service';
+import { of } from 'rxjs';
 
 
 describe('BuyNowPageComponent', () => {
@@ -13,6 +15,7 @@ describe('BuyNowPageComponent', () => {
   let fixture: ComponentFixture<BuyNowPageComponent>;
   let router : Router;
   let obj = {};
+  let authService:AuthService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -35,6 +38,7 @@ describe('BuyNowPageComponent', () => {
     router = TestBed.inject(Router);
     fixture = TestBed.createComponent(BuyNowPageComponent);
     component = fixture.componentInstance;
+    authService = TestBed.get(AuthService);
     fixture.detectChanges();
   });
 
@@ -49,8 +53,14 @@ describe('BuyNowPageComponent', () => {
   })
   it('call check duplicates ',()=>{
     component.checkDuplicates(obj);
-  })
+  });
   it('should call buy now() ',()=>{
     component.buyNow(obj);
-  })
+  });
+  it('getCartDetails()',()=>{
+    const response :string[]= [];
+    spyOn(authService,'getCart').and.returnValue(of(response))
+    component.getCartDetails();
+    expect(component.cardDetails).toEqual(response);
+  });
 });

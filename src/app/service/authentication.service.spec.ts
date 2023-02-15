@@ -115,5 +115,5 @@ describe('Service: Authentication', () => {
   })
   it('should call setEmail()',()=>{
     authService.setEmail(email);
-  })
+  });
 })

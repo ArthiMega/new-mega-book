@@ -4,10 +4,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListingComponent } from './listing.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { CRUDService } from '../service/crud.service';
+import { of } from 'rxjs';
 
 describe('ListingComponent', () => {
   let component: ListingComponent;
   let fixture: ComponentFixture<ListingComponent>;
+  let crudService :CRUDService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,10 +24,18 @@ describe('ListingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListingComponent);
     component = fixture.componentInstance;
+    crudService = TestBed.get(CRUDService);
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should call getAllUsers()',()=>{
+    const response:string[]= [];
+    spyOn(crudService,'getUserInfo').and.returnValue(of(response))
+    component.getAllUsers();
+    fixture.detectChanges();
+    expect(component.userData).toEqual(response);
+  })
 });

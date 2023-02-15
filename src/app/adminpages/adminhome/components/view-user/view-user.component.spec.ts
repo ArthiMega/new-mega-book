@@ -53,10 +53,10 @@ describe('ViewUserComponent', () => {
     expect(component.dashBoard).toEqual(response);
   });
   it('getCart()',()=>{
-    const response :string[]= [];
-    spyOn(authService, 'getCart').and.returnValue(of(response))
-    component.viewUserBooks();;
+    const response1 :string[]= [];
+    spyOn(authService, 'getCart').and.returnValue(of(response1))
+    component.viewUserBooks();
     fixture.detectChanges();
-    expect(component.cartedBooks).toEqual(response);
+    expect(component.cartedBooks).toEqual(response1);
   })
 });

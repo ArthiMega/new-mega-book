@@ -1,49 +1,36 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { TestBed,fakeAsync, tick, async } from '@angular/core/testing';
-import { ToastrModule } from 'ngx-toastr';
-import { AuthService } from '../service/authentication.service';
-// import { Location } from '@angular/common';
-// import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
-// import { HomeComponent } from '../home/home.component';
-// import {routes} from '/home/asplap3268/gitworkspacenew/mega-book-master16.01.2023/src/app/adminpages/adminhome/adminhome-routing.module';
-
-
 import { RoleGaurdGuard } from './role-gaurd.guard';
+import { AuthService } from '../service/authentication.service';
 
 describe('RoleGaurdGuard', () => {
-  let route : ActivatedRouteSnapshot;
-  let state:RouterStateSnapshot;
   let guard: RoleGaurdGuard;
-  let authService:AuthService;
-  let router:Router
-  beforeEach(async() => {
+  let authService: jasmine.SpyObj<AuthService>;
+  let router: jasmine.SpyObj<Router>;
+
+  beforeEach(() => {
+    authService = jasmine.createSpyObj<AuthService>('AuthService', ['isAdmin']);
+    router = jasmine.createSpyObj<Router>('Router', ['navigate']);
     TestBed.configureTestingModule({
-     // declarations:[HomeComponent],
-      providers:[RoleGaurdGuard,HttpClient, HttpHandler,{provide:Router, useValue:router}, AuthService],
-      imports:[ToastrModule.forRoot()] //RouterTestingModule.withRoutes(routes)
+      providers: [
+        { provide: AuthService, useValue: authService },
+        { provide: Router, useValue: router },
+      ]
     });
-    //router = TestBed.get(Router);
-  });
-  beforeEach(()=>{
     guard = TestBed.inject(RoleGaurdGuard);
-    authService = TestBed.get(AuthService);
-    router = TestBed.get(Router)
   });
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
-  });
-  it('be able yo hit when user is logged in',()=>{
-    authService.isLoggedIn();
-    const spy = router.navigate as jasmine.Spy;
-    const navArgs = spy.calls.first().args[0];
-    expect(guard.canActivate(route,state)).toBe(true);
-    expect(navArgs[0]).toBe('/home')
-  });
-  it('be not able yo hit when user is logged in',()=>{
-    authService.isLoggedIn();
-    expect(guard.canActivate(route,state)).toBe(false);
+  it('should return true if user is an admin', () => {
+    authService.isAdmin.and.returnValue(true);
+    const result = guard.canActivate({} as ActivatedRouteSnapshot, {} as RouterStateSnapshot);
+    expect(result).toBeTrue();
+    expect(router.navigate).not.toHaveBeenCalled();
   });
 
+  it('should return false and redirect to home if user is not an admin', () => {
+    authService.isAdmin.and.returnValue(false);
+    const result = guard.canActivate({} as ActivatedRouteSnapshot, {} as RouterStateSnapshot);
+    expect(result).toBeFalse();
+    expect(router.navigate).toHaveBeenCalledWith(['/home']);
+  });
 });

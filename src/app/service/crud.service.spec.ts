@@ -65,7 +65,7 @@ let id = 1
       expect(data).toEqual(BOOKS);
     });
     const req = httpTestingController.expectOne({
-      method:'POST',
+      method:'PUT',
       url:`${baseURL}/books`,
     })
   })

@@ -46,7 +46,6 @@ export class AuthService {
     sessionStorage.removeItem('token');
     this.nav.show();
     this.router.navigate(['login']);
-
   }
 
   isAdmin() {

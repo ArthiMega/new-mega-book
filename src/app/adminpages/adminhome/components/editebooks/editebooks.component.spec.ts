@@ -6,6 +6,7 @@ import { EditebooksComponent } from './editebooks.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CRUDService } from 'src/app/service/crud.service';
+import  {of} from 'rxjs';
 
 describe('EditebooksComponent', () => {
   let component: EditebooksComponent;
@@ -40,5 +41,12 @@ describe('EditebooksComponent', () => {
     spyOn(crudService,'deleteBook');
     component.deleteBook(id);
     expect(crudService.deleteBook).toHaveBeenCalled();
-  })
+  });
+  it('viewBooks()',()=>{
+    const response:string[] = [];
+    spyOn(crudService, 'getAllBooks').and.returnValue(of(response))
+    component.viewBooks();
+    fixture.detectChanges();
+    expect(component.books).toEqual(response);
+  });
 });

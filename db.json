@@ -519,6 +519,18 @@
         "id": 5
       },
       "id": 10
+    },
+    {
+      "email": "art@gmail.com",
+      "cartedBooks": {
+        "name": "My Sustem: An Evolved Computer I Made with my unique ability",
+        "author": "James",
+        "price": 350,
+        "img": "http://localhost:4200/assets/images/MySystem.webp",
+        "about": "A young man found himself reborn as a Kryptonian. Content with living a quiet and peaceful life. Sadly it came to an abrupt end when a pink hair alien crash ...",
+        "id": 7
+      },
+      "id": 11
     }
   ]
 }
