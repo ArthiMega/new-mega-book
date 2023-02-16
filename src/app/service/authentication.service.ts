@@ -18,10 +18,10 @@ export class AuthService {
   secret!: string;
   access?: any;
   decoded!: any;
-  constructor(private router: Router,
+  constructor(public router: Router,
     private http: HttpClient,
     private toastr: ToastrService,
-    private nav: NavService) { }
+    public nav: NavService) { }
 
   setToken(token: string): void {
     sessionStorage.setItem('token', token);

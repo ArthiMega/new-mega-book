@@ -86,17 +86,48 @@ describe('BookComponent', () => {
     expect(component.expand).toBeFalse();
     expect(component.anchor).toBe('Read more');
   });
-  it('should return true if the book is in the cart', () => {
-    const id = 1;
-    const email = 'test@example.com';
-    const book: Object = { id, title: 'Test Book', author: 'Test Author', price: 10 };
-    const cartItems = [
-      { id: 1, email, cartedBooks: { id: 1, book, quantity: 1 } },
-      { id: 2, email, cartedBooks: { id: 2, book, quantity: 2 } },
+  it('should return true if book is in cart for the logged in user', () => {
+    // set up test data
+    const component = TestBed.createComponent(BookComponent);
+    const instance = component.componentInstance;
+    instance.cartItems = [
+      {
+        email: 'test@example.com',
+        cartedBooks: {
+          id: '123',
+          title: 'The Great Gatsby',
+          price: 10.99
+        }
+      }
     ];
-    authService.getCart.and.returnValue(cartItems);
-    spyOn(sessionStorage, 'getItem').and.returnValue(email);
-    const result = component.isInCart(id);
-    expect(result).toBeTrue();
+    spyOn(sessionStorage, 'getItem').and.returnValue('test@example.com');
+
+    // call the function being tested
+    const result = instance.isInCart('123');
+
+    // assert the result
+    expect(result).toBe(true);
+  });
+  it('should return false if book is not in cart for the logged in user', () => {
+    // set up test data
+    const component = TestBed.createComponent(BookComponent);
+    const instance = component.componentInstance;
+    instance.cartItems = [
+      {
+        email: 'test@example.com',
+        cartedBooks: {
+          id: '123',
+          title: 'The Great Gatsby',
+          price: 10.99
+        }
+      }
+    ];
+    spyOn(sessionStorage, 'getItem').and.returnValue('test@example.com');
+
+    // call the function being tested
+    const result = instance.isInCart('456');
+
+    // assert the result
+    expect(result).toBe(false);
   });
 });

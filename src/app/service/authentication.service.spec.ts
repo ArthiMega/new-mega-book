@@ -74,7 +74,7 @@ describe('Service: Authentication', () => {
       });
       expect(httpClientSpy.get).toHaveBeenCalledTimes(1);
     })
-  
+
 
     it('should ...', inject([AuthService], (service: AuthService) => {
       expect(service).toBeTruthy();
@@ -110,10 +110,13 @@ describe('Service: Authentication', () => {
     expect(req.request.method).toEqual('POST');
     expect(req.request.body).toEqual(MYREADINGS);
   });
-  it('should call settoken()',()=>{
+  it('should call settoken()', () => {
     authService.setToken(token);
   })
-  it('should call setEmail()',()=>{
+  it('should call setEmail()', () => {
     authService.setEmail(email);
   });
-})
+  it('isAdmin()', () => {
+    authService.isAdmin();
+  });
+});

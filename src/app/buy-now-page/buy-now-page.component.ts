@@ -17,7 +17,7 @@ export class BuyNowPageComponent implements OnInit {
   buyNowModuleObj: BuyNowModule = new BuyNowModule();
   currentUser: any;
   constructor(private crudservice: CRUDService,
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router,
     private toastr: ToastrService
   ) { }
@@ -61,7 +61,6 @@ export class BuyNowPageComponent implements OnInit {
     this.getCartDetails();
     if (this.checkDuplicates(this.buyNowModuleObj)) {
       this.auth.buyNow(this.buyNowModuleObj).subscribe(res => {
-        console.log(res);
         this.IndividualBook = false;
       },
       error=>{
